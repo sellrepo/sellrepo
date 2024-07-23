@@ -1,9 +1,16 @@
 <div class="prose mx-auto">
   <div class="flex justify-between items-center mb-8 gap-4">
     <h1 class="mb-0"><%= @license.name %></h1>
-    <%= link_to "View on GitHub", @license.product.github_repo, target: :_blank, class: "flex-shrink-0 bg-black text-white no-underline font-bold px-4 py-2 rounded" if @license.users_count? %>
+    <%= link_to "Rename", edit_license_path(@license) %>
   </div>
 
   <%= render @license.users %>
   <%= render "license/users/form", license: @license if @license.available? %>
+
+  <% if @license.users_count? %>
+    <div class="mt-4">
+      <p>Check your email for an invitation from GitHub to join the repository. Once accepted, you can access the GitHub repository.</p>
+      <%= link_to "View on GitHub", @license.product.github_repo, target: :_blank, class: "flex-shrink-0 bg-black text-white no-underline font-bold px-5 py-3 rounded inline-block" %>
+    </div>
+  <% end %>
 </div>

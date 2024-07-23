@@ -1,21 +1,18 @@
-class ProductResource < Madmin::Resource
+class ConfigResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :featured_image, index: false
-  attribute :name
-  attribute :description, index: false
-  attribute :github_repo
-  attribute :amount_in_cents
-  attribute :stripe_price_id
+  attribute :app_name
+  attribute :support_url
   attribute :created_at, form: false
   attribute :updated_at, form: false
+  attribute :logo, index: false
 
   # Associations
 
   # Uncomment this to customize the display name of records in the admin area.
-  def self.display_name(record)
-    record.name
-  end
+  # def self.display_name(record)
+  #   record.name
+  # end
 
   # Uncomment this to customize the default sort column and direction.
   # def self.default_sort_column

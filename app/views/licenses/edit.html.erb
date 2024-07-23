@@ -1,0 +1,13 @@
+<div class="prose mx-auto">
+  <h1>Rename License</h1>
+
+  <%= form_with model: @license do |form| %>
+    <div class="mb-4">
+      <%= form.label :name, class: "text-sm font-medium text-gray-800 block mb-1" %>
+      <%= form.text_field :name, required: true, autofocus: true, class: "form-control inline-block max-w-80 mr-2" %>
+    </div>
+
+    <%= form.submit "Save changes", class: "bg-black text-white no-underline font-bold px-4 py-2 rounded mr-2" %>
+    <%= link_to "Cancel", @license %>
+  <% end %>
+</div>
