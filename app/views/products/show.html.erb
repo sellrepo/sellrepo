@@ -1,0 +1,14 @@
+<div class="max-w-4xl mx-auto mt-8 grid grid-cols-8 gap-8">
+  <div class="col-span-5">
+    <%= image_tag(@product.featured_image, class: "rounded-md mb-8") if @product.featured_image.attached? %>
+    <%= @product.description %>
+  </div>
+
+  <div class="col-span-3">
+    <h1 class="font-bold text-3xl"><%= @product.name %></h1>
+    <%= tag.div number_to_currency(@product.amount_in_cents / 100.0), class: "mt-2 text-2xl" %>
+    <div class="mt-4">
+      <%= link_to "Checkout", product_checkout_path(@product), class: "inline-block rounded-md bg-indigo-600 px-6 py-3 font-medium text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    </div>
+  </div>
+</div>

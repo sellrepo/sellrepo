@@ -1,0 +1,10 @@
+<%= link_to license, class: "block border border-gray-100 rounded-lg p-4 hover:bg-gray-50" do %>
+  <%= tag.div license.name, class: "text-xl font-bold" %>
+  <div class="text-sm text-gray-700">
+    <%= license.product.name %>
+    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current inline-block">
+      <circle cx="1" cy="1" r="1" />
+    </svg>
+    Purchased on <%= l license.created_at.to_date, format: :long %>
+  </div>
+<% end %>

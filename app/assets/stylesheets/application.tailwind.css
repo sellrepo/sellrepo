@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium mb-2 dark:text-white;
+  }
+
+  .form-control {
+    @apply py-2.5 px-3 block w-full border-gray-200 rounded text-sm focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none;
+  }
+}

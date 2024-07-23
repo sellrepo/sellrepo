@@ -1,0 +1,5 @@
+<div class="flex items-center gap-2 border border-gray-200 p-3 rounded">
+  <%= image_tag(user.github_avatar_url, class: "size-8 rounded inline-block m-0") %>
+  <%= tag.strong user.github_username, class: "flex-1" %>
+  <%= button_to "Remove", license_license_user_path(user.license, user), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+</div>

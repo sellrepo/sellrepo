@@ -1,0 +1,21 @@
+<nav class="bg-gray-100">
+  <div class="container mx-auto h-16 flex justify-between">
+    <div class="flex items-center gap-4">
+      <%= link_to Rails.application.config.x.name, root_path, class: "font-bold" %>
+
+      <%= link_to "Products", products_path, class: "inline-flex font-medium" %>
+      <%= link_to "Licenses", licenses_path, class: "inline-flex font-medium" %>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <% if user_signed_in? %>
+        <%= link_to "Admin", madmin_root_path if current_user.admin? %>
+        <%= link_to "Profile", profile_path %>
+        <%= button_to "Logout", logout_path, method: :delete, form_class: "inline-block" %>
+      <% else %>
+        <%= link_to "Login", login_path %>
+        <%= link_to "Sign Up", sign_up_path %>
+      <% end %>
+    </div>
+  </div>
+</nav>
