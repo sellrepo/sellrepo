@@ -36,7 +36,7 @@ class ApplicationClient
   class InternalError < Error; end
 
   BASE_URI = "https://example.org"
-  NET_HTTP_ERRORS = [Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError]
+  NET_HTTP_ERRORS = [ Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError ]
 
   attr_reader :auth, :basic_auth, :token
 
@@ -81,7 +81,7 @@ class ApplicationClient
   #   { "X-API-Key" => token }
   #   { "AccessKey" => token }
   def authorization_header
-    {"Authorization" => "Bearer #{auth&.token || token}"}
+    { "Authorization" => "Bearer #{auth&.token || token}" }
   end
 
   # Override to customize default query params
@@ -326,7 +326,7 @@ class ApplicationClient
       @link_header ||= headers[:link]&.split(", ")&.map do |link|
         rel = link[/rel="(.+)"/, 1].to_sym
         url = link[/<(.+)>/, 1]
-        [rel, url]
+        [ rel, url ]
       end.to_h
     end
 

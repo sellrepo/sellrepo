@@ -1,6 +1,6 @@
 class LicensesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_license, only: [:show]
+  before_action :set_license, only: [ :show ]
 
   def index
     @licenses = current_user.licenses.order(created_at: :desc)

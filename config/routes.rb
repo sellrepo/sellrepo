@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   revise_auth
 
-  authenticated ->{ _1.admin? } do
+  authenticated -> { _1.admin? } do
     draw :madmin
   end
 
-  resources :products, only: [:index, :show] do
-    resource :checkout, only: [:show]
+  resources :products, only: [ :index, :show ] do
+    resource :checkout, only: [ :show ]
     namespace :checkout do
-      resource :stripe, controller: :stripe, only: [:show]
+      resource :stripe, controller: :stripe, only: [ :show ]
     end
   end
   resources :licenses do

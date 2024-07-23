@@ -2,7 +2,7 @@ class GithubClient < ApplicationClient
   BASE_URI = "https://api.github.com"
 
   def add_collaborator(repostiory:, username:)
-    put "/repos/#{repository}/collaborators/#{username}", body: {permission: :triage}
+    put "/repos/#{repository}/collaborators/#{username}", body: { permission: :triage }
   end
 
   def remove_collaborator(repository:, username:)

@@ -1,6 +1,5 @@
 module Madmin
   class ProductsController < Madmin::ResourceController
-
     private
 
     def set_record
