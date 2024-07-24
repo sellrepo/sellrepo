@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+email = ENV.fetch("ADMIN_EMAIL", "admin@example.org")
+
+User.where(email: email).first_or_create! do |user|
+  password = SecureRandom.alphanumeric(16)
+  user.password = password
+  user.password_confirmation = password
+  user.admin = true
+
+  puts "Your login credentials are: #{email} / #{password}"
+end
