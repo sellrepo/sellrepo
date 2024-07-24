@@ -1,5 +1,5 @@
 class CheckoutsController < ApplicationController
-  before_action :authenticate_user!
+  authenticate_user! with: :sign_up, return_to: false
   before_action :set_product
 
   def show

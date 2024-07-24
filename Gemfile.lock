@@ -234,7 +234,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    revise_auth (0.7.1)
+    revise_auth (0.8.0)
       bcrypt (~> 3.1)
       rails (>= 7.1.0.beta1)
     rexml (3.3.1)
@@ -366,7 +366,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.0.beta2)
   redis (>= 4.0.1)
-  revise_auth (~> 0.7.1)
+  revise_auth (~> 0.8)
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
