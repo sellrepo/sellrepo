@@ -3,6 +3,7 @@ class ConfigResource < Madmin::Resource
   attribute :id, form: false
   attribute :app_name
   attribute :support_url
+  attribute :github_token
   attribute :created_at, form: false
   attribute :updated_at, form: false
   attribute :logo, index: false

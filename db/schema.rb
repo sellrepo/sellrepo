@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
   create_table "configs", force: :cascade do |t|
     t.string "app_name"
     t.string "support_url"
+    t.string "github_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
