@@ -5,7 +5,7 @@ class Licenses::UsersController < ApplicationController
   def create
     @license_user = @license.users.create(license_user_params)
     if @license_user
-      flash[:notice] = "GitHub user added successfully."
+      flash[:notice] = "Check your email to accept the GitHub invitation to this repository."
     else
       flash[:alert] = @license_user.errors.full_messages.first
     end

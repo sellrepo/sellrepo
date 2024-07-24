@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[7.2]
       t.string :github_repo
       t.integer :amount_in_cents
       t.string :stripe_price_id
-      t.string :paddle_billing_price_id
+      t.integer :allowed_users, default: 1
 
       t.timestamps
     end

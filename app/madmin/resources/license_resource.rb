@@ -3,6 +3,7 @@ class LicenseResource < Madmin::Resource
   attribute :id, form: false
   attribute :user_id
   attribute :name
+  attribute :allowed_users, index: false
   attribute :users_count, form: false
   attribute :created_at, form: false
   attribute :updated_at, form: false

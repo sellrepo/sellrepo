@@ -7,7 +7,11 @@ module ChargeExtensions
   end
 
   def create_license
-    user.licenses.where(product: product, pay_charge: self).first_or_create!
+    user.licenses.where(
+      product: product,
+      pay_charge: self,
+      allowed_users: product.allowed_users
+    ).first_or_create!
   end
 
   def user

@@ -9,8 +9,9 @@ class GithubClient < ApplicationClient
     get "/repos/#{repository}"
   end
 
-  def add_collaborator(repostiory:, username:)
-    put "/repos/#{repository}/collaborators/#{username}", body: { permission: :triage }
+  def add_collaborator(repository:, username:)
+    # Permissions are only allowed on Organization repositories
+    put "/repos/#{repository}/collaborators/#{username}"
   end
 
   def remove_collaborator(repository:, username:)

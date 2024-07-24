@@ -11,11 +11,15 @@ class License::User < ApplicationRecord
     github_url + ".png"
   end
 
-  after_create do
+  after_create :add_to_github
+
+  def add_to_github
     GithubClient.new.add_collaborator(repository: license.product.github_repo, username: github_username)
   end
 
-  before_destroy do
+  before_destroy :remove_from_github
+
+  def remove_from_github
     GithubClient.new.remove_collaborator(repository: license.product.github_repo, username: github_username)
   end
 end

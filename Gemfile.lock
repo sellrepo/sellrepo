@@ -1,5 +1,6 @@
-PATH
-  remote: ../pay
+GIT
+  remote: https://github.com/pay-rails/pay.git
+  revision: b4c7927fa2bc25f3518785aaabc6ddf4989d2b8b
   specs:
     pay (7.3.0)
       rails (>= 6.0.0)

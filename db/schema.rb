@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.integer "product_id", null: false
     t.integer "pay_charge_id"
     t.string "name"
+    t.integer "allowed_users", default: 1
     t.integer "users_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -175,7 +176,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.string "github_repo"
     t.integer "amount_in_cents"
     t.string "stripe_price_id"
-    t.string "paddle_billing_price_id"
+    t.integer "allowed_users", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_products_on_slug", unique: true

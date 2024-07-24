@@ -7,10 +7,6 @@ class License < ApplicationRecord
     super || product.name
   end
 
-  def allowed_users
-    1
-  end
-
   def available?
     users_count < allowed_users
   end

@@ -3,10 +3,12 @@ class ProductResource < Madmin::Resource
   attribute :id, form: false
   attribute :featured_image, index: false
   attribute :name
+  attribute :slug, index: false
   attribute :description, index: false
   attribute :github_repo
   attribute :stripe_price_id
   attribute :amount_in_cents, form: :false
+  attribute :allowed_users, index: false
   attribute :created_at, form: false
   attribute :updated_at, form: false
 

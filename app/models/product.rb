@@ -14,7 +14,11 @@ class Product < ApplicationRecord
   end
 
   before_validation if: :stripe_price_id_changed? do
-    self.amount_in_cents = ::Stripe::Price.retrieve(stripe_price_id).unit_amount
+    price = ::Stripe::Price.retrieve(stripe_price_id)
+    self.amount_in_cents = price.unit_amount
+    errors.add :stripe_price_id, "must be a one-time price" if price.type != "one_time"
+  rescue ::Stripe::StripeError => e
+    errors.add :stripe_price_id, e.message
   end
 
   def to_param
