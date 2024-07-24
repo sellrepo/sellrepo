@@ -10,4 +10,12 @@ class License::User < ApplicationRecord
   def github_avatar_url
     github_url + ".png"
   end
+
+  after_create do
+    GithubClient.new.add_collaborator(repository: license.product.github_repo, username: github_username)
+  end
+
+  before_destroy do
+    GithubClient.new.remove_collaborator(repository: license.product.github_repo, username: github_username)
+  end
 end

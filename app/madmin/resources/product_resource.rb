@@ -5,8 +5,8 @@ class ProductResource < Madmin::Resource
   attribute :name
   attribute :description, index: false
   attribute :github_repo
-  attribute :amount_in_cents
   attribute :stripe_price_id
+  attribute :amount_in_cents, form: :false
   attribute :created_at, form: false
   attribute :updated_at, form: false
 

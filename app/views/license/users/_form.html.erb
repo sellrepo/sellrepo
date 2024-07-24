@@ -1,7 +1,9 @@
-<div class="flex items-center gap-2 border border-gray-200 p-3 rounded">
+<div class="flex justify-center gap-2 border border-gray-200 p-3 rounded">
   <%= form_with model: [license, License::User.new] do |form| %>
     <%= form.label :github_username, "Add your GitHub username to access the repository." %>
-    <%= form.text_field :github_username, placeholder: "dhh", required: true, autofocus: true, class: "form-control inline-block max-w-80 mr-2" %>
-    <%= form.submit "Add", class: "bg-black text-white no-underline font-bold px-4 py-2 rounded" %>
+    <div class="flex items-center gap-2">
+      <%= form.text_field :github_username, placeholder: "dhh", required: true, autofocus: true, class: "max-w-80" %>
+      <%= form.submit "Add", class: "btn btn-secondary" %>
+    </div>
   <% end %>
 </div>

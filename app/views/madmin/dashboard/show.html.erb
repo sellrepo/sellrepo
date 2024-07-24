@@ -1,0 +1,5 @@
+<div class="prose">
+  <h1>Admin Dashboard</h1>
+
+  <p>You have made <%= tag.strong number_to_currency((Pay::Charge.sum(:amount) - Pay::Charge.sum(:amount_refunded)) / 100.0) %> in sales.</p>
+</div>

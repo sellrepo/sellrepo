@@ -1,15 +1,15 @@
-<h1><%=t ".profile" %></h1>
+<div class="prose mx-auto">
+  <h1><%=t ".profile" %></h1>
 
-<%= form_with model: current_user, url: profile_email_path do |form| %>
-  <fieldset>
-    <legend><%=t ".change_email_address" %></legend>
+  <%= form_with model: current_user, url: profile_email_path do |form| %>
+    <h3><%=t ".change_email_address" %></h3>
 
     <% if current_user.unconfirmed_email? %>
       <p><%=t ".waiting_confirmation", email: current_user.unconfirmed_email %></p>
     <% end %>
 
     <% if form.object.errors.any? %>
-      <ul>
+      <ul class="bg-red-100 p-4 rounded">
         <% form.object.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -19,53 +19,50 @@
     <p><%=t ".current_email_address", email: current_user.email %></p>
     <p><%=t ".confirmation_instructions" %></p>
 
-    <div>
-      <%= form.label :unconfirmed_email, t(".new_email") %>
-      <%= form.email_field :unconfirmed_email, required: true %>
+    <div class="mb-4">
+      <%= form.label :unconfirmed_email, t(".new_email"), class: "form-label" %>
+      <%= form.email_field :unconfirmed_email, required: true, class: "form-control" %>
     </div>
 
     <div>
-      <%= form.button t(".save") %>
+      <%= form.button t(".save"), class: "btn btn-secondary" %>
     </div>
-  </fieldset>
-<% end %>
+  <% end %>
 
-<%= form_with model: current_user, url: profile_password_path do |form| %>
-  <fieldset>
-    <legend><%=t ".change_password" %></legend>
+  <%= form_with model: current_user, url: profile_password_path do |form| %>
+    <h3><%=t ".change_password" %></h3>
 
     <% if form.object.errors.any? %>
-      <ul>
+      <ul class="bg-red-100 p-4 rounded">
         <% form.object.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     <% end %>
 
-    <div>
-      <%= form.label :password_challenge %>
-      <%= form.password_field :password_challenge, required: true %>
+    <div class="mb-4">
+      <%= form.label :password_challenge, class: "form-label" %>
+      <%= form.password_field :password_challenge, required: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password, t(".new_password"), class: "form-label" %>
+      <%= form.password_field :password, required: true, class: "form-control" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password_confirmation, class: "form-label" %>
+      <%= form.password_field :password_confirmation, required: true, class: "form-control" %>
     </div>
 
     <div>
-      <%= form.label :password, t(".new_password") %>
-      <%= form.password_field :password, required: true %>
+      <%= form.button t(".save"), class: "btn btn-secondary" %>
     </div>
+  <% end %>
 
-    <div>
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, required: true %>
-    </div>
-
-    <div>
-      <%= form.button t(".save") %>
-    </div>
-  </fieldset>
-<% end %>
-
-<%= form_with url: profile_path, method: :delete do |form| %>
-  <fieldset>
-    <legend><%=t ".delete_account" %></legend>
-    <%= form.button t(".delete_account"), data: { turbo_confirm: t(".confirm") } %>
-  </fieldset>
-<% end %>
+  <%= form_with url: profile_path, method: :delete do |form| %>
+    <h3><%=t ".delete_account" %></h3>
+    <p>You will lose access to all your licenses and purchase history by deleting your account.</p>
+    <%= form.button t(".delete_account"), class: "btn btn-secondary", data: { turbo_confirm: t(".confirm") } %>
+  <% end %>
+</div>

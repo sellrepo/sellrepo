@@ -3,11 +3,13 @@
 
   <%= form_with model: @license do |form| %>
     <div class="mb-4">
-      <%= form.label :name, class: "text-sm font-medium text-gray-800 block mb-1" %>
-      <%= form.text_field :name, required: true, autofocus: true, class: "form-control inline-block max-w-80 mr-2" %>
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true, autofocus: true %>
     </div>
 
-    <%= form.submit "Save changes", class: "bg-black text-white no-underline font-bold px-4 py-2 rounded mr-2" %>
-    <%= link_to "Cancel", @license %>
+    <div class="flex gap-2 items-center">
+      <%= form.submit "Save changes", class: "btn btn-secondary" %>
+      <%= link_to "Cancel", @license %>
+    </div>
   <% end %>
 </div>

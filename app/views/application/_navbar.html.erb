@@ -4,7 +4,7 @@
       <%= link_to logo, root_path, class: "font-bold" %>
     </div>
 
-    <div class="flex items-center gap-4 text-sm">
+    <div class="flex items-center gap-4 text-sm font-medium">
       <% if user_signed_in? %>
         <%= link_to "Licenses", licenses_path, class: class_names("font-semibold" => request.path.start_with?(licenses_path)) %>
         <%= link_to "Help", support_url if support_url %>

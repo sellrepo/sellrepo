@@ -8,7 +8,7 @@
     <h1 class="font-bold text-3xl"><%= @product.name %></h1>
     <%= tag.div number_to_currency(@product.amount_in_cents / 100.0), class: "mt-2 text-2xl" %>
     <div class="mt-4">
-      <%= link_to "Checkout", product_checkout_path(@product), class: "inline-block rounded-md bg-indigo-600 px-6 py-3 font-medium text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+      <%= link_to "Checkout", product_checkout_path(@product), class: "btn btn-lg btn-primary" %>
     </div>
   </div>
 </div>

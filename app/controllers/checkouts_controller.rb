@@ -22,8 +22,8 @@ class CheckoutsController < ApplicationController
 
   def metadata
     {
-        user_id: current_user.id,
-        product_id: @product.id
+      user_id: current_user.id,
+      product_id: @product.id
     }
   end
 end

@@ -175,6 +175,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.string "github_repo"
     t.integer "amount_in_cents"
     t.string "stripe_price_id"
+    t.string "paddle_billing_price_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_products_on_slug", unique: true

@@ -1,32 +1,34 @@
-<h1><%=t ".sign_up" %></h1>
+<div class="prose mx-auto">
+  <h1><%=t ".sign_up" %></h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
-  <% if form.object.errors.any? %>
-    <ul>
-      <% form.object.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+  <%= form_with model: @user, url: sign_up_path do |form| %>
+    <% if form.object.errors.any? %>
+      <ul>
+        <% form.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :email %>
+      <%= form.email_field :email, required: true, autofocus: true %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password %>
+      <%= form.password_field :password, required: true %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, required: true %>
+    </div>
+
+    <div>
+      <%= form.button t(".sign_up"), class: "btn btn-secondary" %>
+    </div>
   <% end %>
 
-    </ul>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true, autofocus: true %>
-  </div>
-
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, required: true %>
-  </div>
-
-  <div>
-    <%= form.button t(".sign_up") %>
-  </div>
-<% end %>
-
-<%= render "revise_auth/shared/links" %>
+  <%= render "revise_auth/shared/links" %>
+</div>
