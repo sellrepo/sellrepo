@@ -57,7 +57,7 @@ group :test do
 end
 
 gem "madmin", "~> 1.2"
-gem "pagy", "~> 8.6"
+gem "pagy", "~> 9.0"
 gem "pay", github: "pay-rails/pay" # "~> 7.2"
 gem "revise_auth", "~> 0.8"
 gem "stripe", "~> 12.0"
