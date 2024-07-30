@@ -4,7 +4,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :github_repo, presence: true
-  validates :stripe_price_id, presence: true, format: { with: /\Aprice_/ }
+  validates :stripe_price_id, presence: true, format: { with: /\Aprice_.+\z/ }
   validate :github_repository_exists
 
   normalizes :github_repo, with: -> { _1.split("github.com/").last }
