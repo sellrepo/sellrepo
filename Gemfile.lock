@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: b4c7927fa2bc25f3518785aaabc6ddf4989d2b8b
+  revision: ee04c8816cd47adcc135cd3add8f8bd8a7cca0b5
   specs:
     pay (7.3.0)
       rails (>= 6.0.0)
