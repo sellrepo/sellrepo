@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: b4c7927fa2bc25f3518785aaabc6ddf4989d2b8b
+  revision: 6c0ddb2d7513839b5be7d9b5bd04f58755c48caf
   specs:
-    pay (7.3.0)
+    pay (8.0.0)
       rails (>= 6.0.0)
 
 GEM
