@@ -3,8 +3,8 @@ module SubscriptionExtensions
 
   included do
     has_one :license, inverse_of: :pay_subscription
-    after_commit :create_license, if: ->{ product && status == "active" }
-    after_update_commit :sync_status, if: ->{ product }
+    after_commit :create_license, if: -> { product && status == "active" }
+    after_update_commit :sync_status, if: -> { product }
   end
 
   def create_license
@@ -28,7 +28,7 @@ module SubscriptionExtensions
 
   # Remove license users if subscription goes into an inactive state
   def sync_status
-    if %w{ paused unpaid canceled incomplete_expired }.include? status
+    if %w[ paused unpaid canceled incomplete_expired ].include? status
       license.license_users.destroy_all
     end
   end
@@ -39,7 +39,7 @@ module ChargeExtensions
 
   included do
     has_one :license, inverse_of: :pay_charge
-    after_create_commit :create_license, if: ->{ product }
+    after_create_commit :create_license, if: -> { product }
   end
 
   def create_license

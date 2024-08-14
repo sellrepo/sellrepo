@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   has_rich_text :description
   has_one_attached :featured_image
 
-  scope :one_time, ->{ where(interval_count: nil) }
-  scope :recurring, ->{ where.not(interval_count: nil) }
+  scope :one_time, -> { where(interval_count: nil) }
+  scope :recurring, -> { where.not(interval_count: nil) }
 
   validates :name, presence: true, uniqueness: true
   validates :github_repo, presence: true

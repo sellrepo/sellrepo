@@ -17,7 +17,7 @@ class CheckoutsController < ApplicationController
     args = {
       mode: @product.interval? ? :subscription : :payment,
       line_items: @product.stripe_price_id,
-      success_url: product_checkout_stripe_url(@product),
+      success_url: product_checkout_stripe_url(@product)
     }
 
     if @product.interval?

@@ -6,7 +6,7 @@ class ActiveStorage::AttachmentResource < Madmin::Resource
 
   # Associations
   attribute :record
-  #attribute :blob
+  # attribute :blob
 
   # Uncomment this to customize the display name of records in the admin area.
   # def self.display_name(record)
