@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.0.beta2"
+gem "rails", "~> 7.2.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -56,9 +56,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "madmin", "~> 1.2"
+gem "madmin", github: "excid3/madmin"
 gem "pagy", "~> 9.0"
-gem "pay", github: "pay-rails/pay" # "~> 7.2"
+gem "pay", github: "pay-rails/pay"
 gem "revise_auth", "~> 0.8"
 gem "stripe", "~> 12.0"
 gem "tailwindcss-rails", "~> 2.6"

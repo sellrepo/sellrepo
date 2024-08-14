@@ -1,14 +1,24 @@
-<div class="max-w-6xl mx-auto mt-8 grid grid-cols-8 gap-8">
+<div class="max-w-6xl mx-auto mt-8 md:grid grid-cols-8 gap-8 px-4">
   <div class="col-span-5">
     <%= image_tag(@product.featured_image, class: "rounded-md mb-8") if @product.featured_image.attached? %>
-    <%= @product.description %>
   </div>
 
-  <div class="col-span-3">
+  <div class="col-span-3 md:mt-8">
     <h1 class="font-bold text-3xl"><%= @product.name %></h1>
-    <%= tag.div number_to_currency(@product.amount_in_cents / 100.0), class: "mt-2 text-2xl" %>
+    <div class="mt-2 text-2xl">
+      <%= number_to_currency(@product.amount_in_cents / 100.0) %>
+      <% if @product.interval? %>
+        / <%= @product.interval_count == 1 ? @product.interval : pluralize(@product.interval_count, @product.interval) %>
+      <% end %>
+    </div>
+
     <div class="mt-4">
       <%= link_to "Checkout", product_checkout_path(@product), class: "btn btn-lg btn-primary" %>
+      <%= link_to "Edit product", edit_madmin_product_path(@product), class: "block mt-2 text-sm font-medium" if current_user&.admin? %>
     </div>
   </div>
+</div>
+
+<div class="prose mx-auto mt-8 px-4">
+  <%= @product.description %>
 </div>

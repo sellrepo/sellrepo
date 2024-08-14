@@ -17,6 +17,9 @@ class UserResource < Madmin::Resource
   attribute :payment_processor
   attribute :licenses
 
+  scope :admins
+  scope :customers
+
   # Uncomment this to customize the display name of records in the admin area.
   # def self.display_name(record)
   #   record.name

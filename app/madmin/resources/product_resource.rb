@@ -1,18 +1,26 @@
 class ProductResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :featured_image, index: false
   attribute :name
-  attribute :slug, index: false
+  attribute :slug, index: false, label: "URL Slug"
+  attribute :featured_image, index: false
   attribute :description, index: false
-  attribute :github_repo
-  attribute :stripe_price_id
-  attribute :amount_in_cents, form: :false
-  attribute :allowed_users, index: false
+  attribute :github_repo, placeholder: "https://github.com/username/repository"
+
+  attribute :stripe_price_id, placeholder: "price_12345"
+  attribute :amount_in_cents, :currency, form: false, minor_units: true, label: "Amount"
+  attribute :interval, form: false
+  attribute :interval_count, form: false
+  attribute :allowed_users, index: false, description: "The number of GitHub users allowed to access the repository per license."
+
   attribute :created_at, form: false
   attribute :updated_at, form: false
 
   # Associations
+  attribute :licenses, form: false
+
+  scope :one_time
+  scope :recurring
 
   # Uncomment this to customize the display name of records in the admin area.
   def self.display_name(record)

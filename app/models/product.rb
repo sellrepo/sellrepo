@@ -1,6 +1,11 @@
 class Product < ApplicationRecord
+  has_many :licenses, dependent: :destroy
+
   has_rich_text :description
   has_one_attached :featured_image
+
+  scope :one_time, ->{ where(interval_count: nil) }
+  scope :recurring, ->{ where.not(interval_count: nil) }
 
   validates :name, presence: true, uniqueness: true
   validates :github_repo, presence: true
@@ -15,8 +20,11 @@ class Product < ApplicationRecord
 
   before_validation if: :stripe_price_id_changed? do
     price = ::Stripe::Price.retrieve(stripe_price_id)
-    self.amount_in_cents = price.unit_amount
-    errors.add :stripe_price_id, "must be a one-time price" if price.type != "one_time"
+    assign_attributes(
+      amount_in_cents: price.unit_amount,
+      interval: price.recurring&.interval,
+      interval_count: price.recurring&.interval_count,
+    )
   rescue ::Stripe::StripeError => e
     errors.add :stripe_price_id, e.message
   end

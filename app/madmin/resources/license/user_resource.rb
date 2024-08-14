@@ -1,17 +1,12 @@
-class LicenseResource < Madmin::Resource
+class License::UserResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :user
-  attribute :name
-  attribute :allowed_users, index: false
-  attribute :users_count, form: false
+  attribute :github_username
   attribute :created_at, form: false
   attribute :updated_at, form: false
 
   # Associations
-  attribute :product
-  attribute :pay_charge
-  attribute :users, label: "GitHub Users"
+  attribute :license
 
   # Uncomment this to customize the display name of records in the admin area.
   # def self.display_name(record)

@@ -1,17 +1,16 @@
 class Pay::CustomerResource < Madmin::Resource
   attribute :id, form: false
-  attribute :owner
-  attribute :charges
-  attribute :payment_methods
-  attribute :default_payment_method
-  attribute :processor, index: false
-  attribute :processor_id
+  attribute :owner, index: true, form: false
+  attribute :charges, form: false
+  attribute :processor, index: true, label:  "Payment Processor", form: false
+  attribute :processor_id, label: "Processor ID", form: false
   attribute :deleted_at, index: false
   attribute :created_at, form: false
   attribute :updated_at, form: false, index: false
-  attribute :payment_method_token, index: false
-  attribute :currency, index: false
 
+  member_action do
+    link_to "View on Stripe", "https://dashboard.stripe.com/customers/#{@record.processor_id}", target: :_blank, class: "btn btn-secondary"
+  end
 
   # Uncomment this to customize the display name of records in the admin area.
   # def self.display_name(record)

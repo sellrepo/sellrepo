@@ -1,16 +1,19 @@
 class Pay::ChargeResource < Madmin::Resource
-  attribute :id, form: false
-  attribute :customer
+  attribute :id, index: true, form: false
+  attribute :customer, index: true
   attribute :license
-  attribute :processor_id, index: false
-  attribute :amount
-  attribute :currency
+  attribute :processor_id
+  attribute :currency, index: true
+  attribute :amount, :currency do |config|
+    config.index = true
+    config.minor_units = true
+  end
   attribute :amount_refunded
   attribute :payment_method_type
   attribute :metadata, index: false
   attribute :created_at, form: false
   attribute :updated_at, form: false, index: false
-  attribute :stripe_receipt_url, index: false
+  attribute :stripe_receipt_url, :string, index: false
   attribute :brand, index: false
   attribute :last4, index: false
   attribute :exp_month, index: false

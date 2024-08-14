@@ -2,7 +2,7 @@ class Checkout::StripeController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    charge = Pay.sync(params)
-    redirect_to charge.license
+    charge_or_subscription = Pay.sync(params)
+    redirect_to charge_or_subscription&.license || licenses_path
   end
 end

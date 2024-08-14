@@ -4,6 +4,11 @@
     <h3 class="mt-1 text-lg font-bold text-gray-900">
       <%= product.name %>
     </h3>
-    <div class="mt-1 text-gray-900"><%= number_to_currency product.amount_in_cents / 100.0 %></div>
+    <div class="mt-1 text-gray-900">
+      <%= number_to_currency product.amount_in_cents / 100.0 %>
+      <% if product.interval? %>
+        / <%= product.interval_count == 1 ? product.interval : pluralize(product.interval_count, product.interval) %>
+      <% end %>
+    </div>
   </div>
 <% end %>

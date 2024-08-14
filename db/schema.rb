@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_13_211140) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.integer "users_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pay_subscription_id"
     t.index ["pay_charge_id"], name: "index_licenses_on_pay_charge_id"
     t.index ["product_id"], name: "index_licenses_on_product_id"
     t.index ["user_id"], name: "index_licenses_on_user_id"
@@ -92,6 +93,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.string "stripe_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["customer_id", "processor_id"], name: "index_pay_charges_on_customer_id_and_processor_id", unique: true
     t.index ["subscription_id"], name: "index_pay_charges_on_subscription_id"
   end
@@ -107,6 +109,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["owner_type", "owner_id", "deleted_at"], name: "pay_customer_owner_index", unique: true
     t.index ["processor", "processor_id"], name: "index_pay_customers_on_processor_and_processor_id", unique: true
   end
@@ -120,6 +123,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.json "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["owner_type", "owner_id", "processor"], name: "index_pay_merchants_on_owner_type_and_owner_id_and_processor"
   end
 
@@ -127,11 +131,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.bigint "customer_id", null: false
     t.string "processor_id", null: false
     t.boolean "default"
-    t.string "type"
+    t.string "payment_method_type"
     t.json "data"
     t.string "stripe_account"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["customer_id", "processor_id"], name: "index_pay_payment_methods_on_customer_id_and_processor_id", unique: true
   end
 
@@ -157,6 +162,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.string "payment_method_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["customer_id", "processor_id"], name: "index_pay_subscriptions_on_customer_id_and_processor_id", unique: true
     t.index ["metered"], name: "index_pay_subscriptions_on_metered"
     t.index ["pause_starts_at"], name: "index_pay_subscriptions_on_pause_starts_at"
@@ -176,6 +182,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_23_195133) do
     t.string "github_repo"
     t.integer "amount_in_cents"
     t.string "stripe_price_id"
+    t.string "interval"
+    t.integer "interval_count"
     t.integer "allowed_users", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
