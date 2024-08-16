@@ -9,11 +9,20 @@
 #   end
 email = ENV.fetch("ADMIN_EMAIL", "admin@example.org")
 
-User.where(email: email).first_or_create! do |user|
-  password = SecureRandom.alphanumeric(16)
-  user.password = password
-  user.password_confirmation = password
-  user.admin = true
 
+if (user = User.find_by(email: email))
+  user.update(admin: true)
+  puts "#{email} is now an admin."
+else
+  password = SecureRandom.alphanumeric(16)
+  User.create(
+    email: email,
+    password: password,
+    password_confirmation: password,
+    admin: true
+  )
   puts "Your login credentials are: #{email} / #{password}"
 end
+
+puts
+puts "You can access the admin area by logging in and visiting /admin"
