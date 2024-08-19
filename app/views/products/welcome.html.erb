@@ -29,13 +29,13 @@
   <p>Finally, give the token Administration Read &amp; Write permission under Repository permissions to allow SellRepo to add collaborators.</p>
   <%= link_to image_tag("sellrepo/github-token-permissions.png", class: "max-h-48"), asset_path("sellrepo/github-token-permissions.png"), target: :_blank %>
 
-  <p>Once you've got your token, add it as the <code>GITHUB_TOKEN</code> environment variable or to Rails credentials.</p>
+  <p>Add this token as the <code>GITHUB_TOKEN</code> environment variable or to Rails credentials and restart the Rails server.</p>
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.payments? ? "text-green-600" : "text-gray-500") %>
     Payments
   </h2>
-  <p>We also need your Stripe API key to handle payments. Add this to environment variables or Rails credentials.</p>
+  <p>We also need your <%= link_to "Stripe API key", "https://dashboard.stripe.com#{"/test" if Rails.env.local?}/apikeys", target: :_blank %> to handle payments. Add this to environment variables or Rails credentials and restart the Rails server.</p>
   <pre><code>STRIPE_PRIVATE_KEY=sk_12345</code></pre>
 
   <% if Rails.env.production? %>
