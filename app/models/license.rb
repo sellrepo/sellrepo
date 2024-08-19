@@ -8,7 +8,7 @@ class License < ApplicationRecord
   scope :active, -> { where(state: :active) }
   scope :inactive, -> { where(state: :inactive) }
 
-  validates :state, inclusion: {in: %w[active inactive]}
+  validates :state, inclusion: { in: %w[active inactive] }
 
   def available?
     users_count < allowed_users

@@ -8,29 +8,33 @@
       <% if user_signed_in? %>
         <%= link_to "Licenses", licenses_path, class: class_names("font-semibold" => request.path.start_with?(licenses_path)) %>
         <%= link_to "Help", support_url if support_url %>
-        <div
-            data-controller="dropdown"
-            data-action="click@window->dropdown#hide touchstart@window->dropdown#hide keydown.up->dropdown#previousItem keydown.down->dropdown#nextItem keydown.esc->dropdown#hide"
-            class="inline-block relative">
+        <div data-controller="dropdown"
+             data-action="click@window->dropdown#hide touchstart@window->dropdown#hide keydown.up->dropdown#previousItem keydown.down->dropdown#nextItem keydown.esc->dropdown#hide"
+             class="inline-block relative">
+
             <button data-action="dropdown#toggle:stop" class="px-2.5 py-1 text-sm rounded h-full hover:bg-gray-100">
               <%= image_tag gravatar_url_for(current_user.email), class: "inline-block size-6 rounded-full" %>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="inline-block fill-current size-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
             </button>
+
             <div data-dropdown-target="menu" class="hidden absolute top-4 right-0 z-10 mt-5 flex w-screen max-w-max">
               <div class="text-sm bg-white shadow-lg rounded border overflow-hidden w-32">
                 <% classes = "no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100" %>
                 <%= link_to "Account", profile_path, class: class_names(classes, "font-semibold" => request.path.start_with?(profile_path)) %>
                 <%= link_to "Billing", billing_path, class: classes %>
+
                 <% if current_user.admin? %>
+                  <hr class="border-t" />
                   <%= link_to "Admin", madmin_root_path, target: :_blank, class: classes %>
                   <%= link_to "Mailbin", mailbin_path, target: :_blank, class: classes %>
                 <% end %>
+
                 <hr class="border-t" />
+
                 <%= button_to "Logout", logout_path, method: :delete, form_class: "block", class: classes + "w-full text-left" %>
               </div>
             </div>
         </div>
-
       <% else %>
         <%= link_to "Login", login_path %>
         <%= link_to "Sign Up", sign_up_path %>
