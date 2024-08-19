@@ -5,20 +5,20 @@
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.admin? ? "text-green-600" : "text-gray-500") %>
-    Create an admin user
+    Create an admin user 👨‍💻
   </h2>
   <p>Open a terminal and run the following to create an admin user or grant admin to an existing user.</p>
   <pre><code>EMAIL=me@example.org rails db:seed</code></pre>
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.app_name? ? "text-green-600" : "text-gray-500") %>
-    Set up your store
+    Set up your store 🛍️
   </h2>
   <p>Login as an admin and <%= link_to "configure your store", edit_madmin_config_path(app_config), target: :_blank %> with a name and support link.</p>
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.github_token? ? "text-green-600" : "text-gray-500") %>
-    Create a GitHub Access token
+    Create a GitHub Access token 🔐
   </h2>
   <p>Next, we need to create a GitHub access token to connect customers to the repositories they've purchased access to.</p>
   <p>We recommend setting <u>Expiration</u> to as long as possible.</p>
@@ -33,7 +33,7 @@
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.payments? ? "text-green-600" : "text-gray-500") %>
-    Payments
+    Enable payments 💳
   </h2>
   <p>We also need your <%= link_to "Stripe API key", "https://dashboard.stripe.com#{"/test" if Rails.env.local?}/apikeys", target: :_blank %> to handle payments. Add this to environment variables or Rails credentials and restart the Rails server.</p>
   <pre><code>STRIPE_PRIVATE_KEY=sk_12345</code></pre>
@@ -48,7 +48,7 @@
   <% if Rails.env.production? %>
     <h2>
       <%= check_icon class: class_names("inline-block", "size-6", SellRepo.smtp? ? "text-green-600" : "text-gray-500") %>
-      SMTP for sending emails
+      SMTP for sending emails 📬
     </h2>
     <p>Add SMTP credentials to environment variables or Rails credentials</p>
 
@@ -59,8 +59,8 @@ SMTP_PASSWORD=password
   <% end %>
 
   <h2>
-    <%= check_icon class: class_names("inline-block", "size-6", SellRepo.payments? ? "text-green-600" : "text-gray-500") %>
-    Create a product
+    <%= check_icon class: class_names("inline-block", "size-6", Product.any? ? "text-green-600" : "text-gray-500") %>
+    Create a product 📦
   </h2>
-  <p>Last but not least, <%= link_to_if current_user&.admin?, "add your first product", new_madmin_product_path, target: :_blank %> for sale!</p>
+  <p>Last but not least, <%= link_to_if current_user&.admin?, "add your first product", new_madmin_product_path, target: :_blank %> and share it with your audience. 🎉</p>
 </div>
