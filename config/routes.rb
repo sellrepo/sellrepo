@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Mailbin::Engine, at: "/mailbin" if Rails.env.local?
+
   revise_auth
 
   authenticated -> { _1.admin? } do

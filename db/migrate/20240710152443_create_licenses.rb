@@ -6,6 +6,7 @@ class CreateLicenses < ActiveRecord::Migration[7.2]
       t.belongs_to :pay_charge
       t.belongs_to :pay_subscription
       t.string :name
+      t.string :state
       t.integer :allowed_users, default: 1
       t.integer :users_count, default: 0
 

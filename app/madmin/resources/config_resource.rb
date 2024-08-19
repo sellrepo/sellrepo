@@ -1,13 +1,9 @@
 class ConfigResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :app_name, index: true
+  attribute :name, index: true, label: "Your store's name"
   attribute :support_url do |config|
     config.placeholder = "mailto:support@example.org"
-  end
-  attribute :github_token do |config|
-    config.index = false
-    config.description = "Use a <a href=\"https://github.com/settings/personal-access-tokens/new\" target=\"_blank\">GitHub Personal Access token</a> with Read & Write access to repository Administration (to add collaborators)".html_safe
   end
   attribute :logo, index: true
   attribute :created_at, form: false

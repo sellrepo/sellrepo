@@ -1,4 +1,7 @@
 class LicenseResource < Madmin::Resource
+  scope :active
+  scope :inactive
+
   # Attributes
   attribute :id, form: false
   attribute :user

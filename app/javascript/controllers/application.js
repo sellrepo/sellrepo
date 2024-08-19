@@ -8,5 +8,7 @@ window.Stimulus   = application
 
 export { application }
 
-import { Alert } from "tailwindcss-stimulus-components"
+import { Alert, Dropdown } from "tailwindcss-stimulus-components"
 application.register('alert', Alert)
+application.register('dropdown', Dropdown)
+

@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   normalizes :github_repo, with: -> { _1.split("github.com/").last }
 
   before_validation do
-    self.slug ||= name.parameterize
+    self.slug ||= name&.parameterize
   end
 
   before_validation if: :stripe_price_id_changed? do

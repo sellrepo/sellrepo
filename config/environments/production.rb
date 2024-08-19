@@ -99,11 +99,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV["SMTP_HOST"],
+    address: SellRepo.smtp_host,
     port: 587,
-    domain: ENV["SMTP_DOMAIN"],
-    user_name: ENV["SMTP_USERNAME"],
-    password: ENV["SMTP_PASSWORD"],
+    domain: SellRepo.smtp_domain,
+    user_name: SellRepo.smtp_username,
+    password: SellRepo.smtp_password,
     authentication:  "plain",
     enable_starttls: true
   }

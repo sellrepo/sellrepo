@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
   def index
     @pagy, @products = pagy Product.all
+
+    render :welcome if @pagy.count.zero?
   end
 
   def show

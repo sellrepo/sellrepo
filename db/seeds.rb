@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-email = ENV.fetch("ADMIN_EMAIL", "admin@example.org")
+email = ENV.fetch("EMAIL", "admin@example.org")
 
 
 if (user = User.find_by(email: email))

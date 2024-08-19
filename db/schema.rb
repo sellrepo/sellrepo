@@ -50,9 +50,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_211140) do
   end
 
   create_table "configs", force: :cascade do |t|
-    t.string "app_name"
+    t.string "name"
     t.string "support_url"
-    t.string "github_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,13 +68,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_211140) do
     t.integer "user_id", null: false
     t.integer "product_id", null: false
     t.integer "pay_charge_id"
+    t.integer "pay_subscription_id"
     t.string "name"
+    t.string "state"
     t.integer "allowed_users", default: 1
     t.integer "users_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "pay_subscription_id"
     t.index ["pay_charge_id"], name: "index_licenses_on_pay_charge_id"
+    t.index ["pay_subscription_id"], name: "index_licenses_on_pay_subscription_id"
     t.index ["product_id"], name: "index_licenses_on_product_id"
     t.index ["user_id"], name: "index_licenses_on_user_id"
   end
@@ -195,7 +196,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_211140) do
     t.string "password_digest", null: false
     t.datetime "confirmed_at"
     t.string "unconfirmed_email"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

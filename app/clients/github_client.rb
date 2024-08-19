@@ -2,7 +2,7 @@ class GithubClient < ApplicationClient
   BASE_URI = "https://api.github.com"
 
   def initialize
-    super token: Config.first.github_token
+    super token: SellRepo.github_token
   end
 
   def repository(repository)
