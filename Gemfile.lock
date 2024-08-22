@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: 426591caf96db5079efa31d617fcc3513c8628e4
+  revision: 5eb291b36fe6607aa44705815eb438ace35b658b
   specs:
     pay (8.0.0)
       rails (>= 6.0.0)
