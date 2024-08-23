@@ -62,6 +62,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem "lemonsqueezy", "~> 1.0"
 gem "madmin", github: "excid3/madmin"
 gem "mailbin", "~> 0.1.0"
 gem "pagy", "~> 9.0"

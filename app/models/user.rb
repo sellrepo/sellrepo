@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include ReviseAuth::Model
 
-  pay_customer default_payment_processor: :stripe
+  pay_customer
 
   has_many :licenses, -> { active }, dependent: :destroy
 

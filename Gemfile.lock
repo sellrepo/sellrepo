@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: 426591caf96db5079efa31d617fcc3513c8628e4
+  revision: d8c4b5ada6891201d81f4656a344636ea972d5f1
   specs:
     pay (8.0.0)
       rails (>= 6.0.0)
@@ -121,6 +121,11 @@ GEM
     drb (2.2.1)
     ed25519 (1.3.0)
     erubi (1.13.0)
+    faraday (2.10.1)
+      faraday-net_http (>= 2.0, < 3.2)
+      logger
+    faraday-net_http (3.1.1)
+      net-http
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -162,6 +167,8 @@ GEM
       thor (~> 1.2)
       zeitwerk (~> 2.5)
     language_server-protocol (3.17.0.3)
+    lemonsqueezy (1.0.1)
+      faraday (~> 2.0)
     logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -181,6 +188,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -265,7 +274,7 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    redis (5.2.0)
+    redis (5.3.0)
       redis-client (>= 0.22.0)
     redis-client (0.22.2)
       connection_pool
@@ -364,6 +373,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     useragent (0.16.10)
     web-console (4.2.1)
       actionview (>= 6.0.0)
@@ -405,6 +415,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  lemonsqueezy (~> 1.0)
   madmin!
   mailbin (~> 0.1.0)
   pagy (~> 9.0)
