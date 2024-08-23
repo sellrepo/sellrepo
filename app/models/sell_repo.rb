@@ -10,7 +10,7 @@ module SellRepo
     end
 
     def app_name?
-      Config.first.name?
+      Config.first&.name?
     end
 
     def github_token
