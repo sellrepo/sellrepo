@@ -26,7 +26,7 @@
                 <% if current_user.admin? %>
                   <hr class="border-t" />
                   <%= link_to "Admin", madmin_root_path, target: :_blank, class: classes %>
-                  <%= link_to "Mailbin", mailbin_path, target: :_blank, class: classes %>
+                  <%= link_to "Mailbin", mailbin_path, target: :_blank, class: classes if Rails.env.local? %>
                 <% end %>
 
                 <hr class="border-t" />
