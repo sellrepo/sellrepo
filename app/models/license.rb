@@ -10,7 +10,7 @@ class License < ApplicationRecord
 
   validates :state, inclusion: { in: %w[active inactive] }
 
-  def available?
+  def can_add_users?
     users_count < allowed_users
   end
 end

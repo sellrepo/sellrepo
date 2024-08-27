@@ -25,6 +25,6 @@ class License::User < ApplicationRecord
   end
 
   def other_active_licenses?
-    LicenseUser.excluding(self).joins(:license).where(licenses: { state: :active, product_id: license.product_id }).exist?
+    License::User.excluding(self).joins(:license).where(licenses: { state: :active, product_id: license.product_id }).any?
   end
 end

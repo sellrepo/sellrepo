@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   scope :one_time, -> { where(interval_count: nil) }
   scope :recurring, -> { where.not(interval_count: nil) }
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, :slug, presence: true, uniqueness: true
   validates :github_repo, presence: true
   validates :stripe_price_id, presence: true, format: { with: /\Aprice_.+\z/ }
   validate :github_repository_exists

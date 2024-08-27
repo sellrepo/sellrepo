@@ -3,8 +3,7 @@ class ProductResource < Madmin::Resource
   attribute :id, form: false
   attribute :name
   attribute :slug, index: false, label: "URL Slug"
-  attribute :featured_image, index: false
-  attribute :description, index: false
+  attribute :featured_image, index: false, description: "Recommended 1280x720 or higher with 16x9 aspect ratio"
   attribute :github_repo, placeholder: "https://github.com/username/repository"
 
   attribute :stripe_price_id, placeholder: "price_12345"
@@ -12,6 +11,8 @@ class ProductResource < Madmin::Resource
   attribute :interval, form: false
   attribute :interval_count, form: false
   attribute :allowed_users, index: false, description: "The number of GitHub users allowed to access the repository per license."
+
+  attribute :description, index: false
 
   attribute :created_at, form: false
   attribute :updated_at, form: false

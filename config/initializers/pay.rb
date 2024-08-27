@@ -10,7 +10,7 @@ module SubscriptionExtensions
   def create_license
     user.licenses.where(
       state: :active,
-      name: product.name,
+      name: "#{product.name} License",
       product: product,
       pay_subscription: self,
       allowed_users: product.allowed_users
@@ -48,7 +48,7 @@ module ChargeExtensions
   def create_license
     user.licenses.where(
       state: :active,
-      name: product.name,
+      name: "#{product.name} License",
       product: product,
       pay_charge: self,
       allowed_users: product.allowed_users

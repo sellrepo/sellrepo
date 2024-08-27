@@ -4,9 +4,22 @@
     <%= link_to "Rename", edit_license_path(@license), class: "no-underline" %>
   </div>
 
-  <div class="flex flex-col space-y-3">
+  <h4>Product</h4>
+  <div class="flex space-x-3">
+    <figure class="my-0 h-16 aspect-video">
+      <%= link_to featured_image(@license.product), @license.product %>
+    </figure>
+
+    <div>
+      <%= link_to @license.product.name, @license.product, class: "no-underline font-bold" %>
+      <p class="mt-0">Purchased <%= l @license.created_at.to_date, format: :long %></p>
+    </div>
+  </div>
+
+  <div class="mt-4 flex flex-col space-y-3">
+    <h4>License Users</h4>
     <%= render @license.users %>
-    <%= render "license/users/form", license: @license if @license.available? %>
+    <%= render "license/users/form", license: @license if @license.can_add_users? %>
   </div>
 
   <% if @license.users_count? %>

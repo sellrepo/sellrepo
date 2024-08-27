@@ -11,10 +11,10 @@
   <pre><code>EMAIL=me@example.org rails db:seed</code></pre>
 
   <h2>
-    <%= check_icon class: class_names("inline-block", "size-6", SellRepo.app_name? ? "text-green-600" : "text-gray-500") %>
+    <%= check_icon class: class_names("inline-block", "size-6", SellRepo.store_name? ? "text-green-600" : "text-gray-500") %>
     Set up your store 🛍️
   </h2>
-  <p>Login as an admin and <%= link_to "configure your store", edit_madmin_config_path(app_config), target: :_blank %> with a name and support link.</p>
+  <p><%= link_to_unless user_signed_in?, "Login", login_path %> as an admin and <%= link_to_if current_user&.admin?, "configure your store", edit_madmin_config_path(SellRepo.config), target: :_blank %> with a name and support link.</p>
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", SellRepo.github_token? ? "text-green-600" : "text-gray-500") %>
@@ -63,4 +63,9 @@ SMTP_PASSWORD=password
     Create a product 📦
   </h2>
   <p>Last but not least, <%= link_to_if current_user&.admin?, "add your first product", new_madmin_product_path, target: :_blank %> and share it with your audience. 🎉</p>
+
+  <% if Product.any? %>
+   <h2>Your store is ready 🎉</h2>
+   <p>Congratulations! You can start selling products. <%= link_to "Check it out", root_path %>!
+ <% end %>
 </div>

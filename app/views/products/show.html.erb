@@ -1,24 +1,38 @@
-<div class="max-w-6xl mx-auto mt-8 md:grid grid-cols-8 gap-8 px-4">
-  <div class="col-span-5">
-    <%= image_tag(@product.featured_image, class: "rounded-md mb-8") if @product.featured_image.attached? %>
-  </div>
+<div class="max-w-5xl mx-auto">
+  <% if current_user&.admin? %>
+    <div class="bg-gray-100 rounded p-2 mb-4 flex justify-between text-xs">
+      <span>Admin actions</span>
+      <%= link_to "Edit product", edit_madmin_product_path(@product) %>
+    </div>
+  <% end %>
 
-  <div class="col-span-3 md:mt-8">
-    <h1 class="font-bold text-3xl"><%= @product.name %></h1>
-    <div class="mt-2 text-2xl">
-      <%= number_to_currency(@product.amount_in_cents / 100.0) %>
-      <% if @product.interval? %>
-        / <%= @product.interval_count == 1 ? @product.interval : pluralize(@product.interval_count, @product.interval) %>
-      <% end %>
+  <figure class="border border-gray-200 rounded-md">
+    <%= featured_image @product %>
+  </figure>
+
+  <div class="mt-8 sm:flex items-center gap-8">
+    <div class="grow">
+      <h1 class="font-bold text-5xl"><%= @product.name %></h1>
     </div>
 
-    <div class="mt-4">
-      <%= link_to "Checkout", product_checkout_path(@product), class: "btn btn-lg btn-primary" %>
-      <%= link_to "Edit product", edit_madmin_product_path(@product), class: "block mt-2 text-sm font-medium" if current_user&.admin? %>
+    <div class="flex justify-between items-center gap-4 mt-4 sm:mt-0">
+      <%= tag.span pricing(@product), class: "text-2xl" %>
+      <%= link_to "Buy now", product_checkout_path(@product), class: "btn btn-lg btn-primary" %>
     </div>
   </div>
-</div>
 
-<div class="prose mx-auto mt-8 px-4">
-  <%= @product.description %>
+  <% if @product.description.present? %>
+    <hr class="my-8" />
+
+    <div class="prose mx-auto">
+      <%= @product.description %>
+    </div>
+
+    <hr class="my-8" />
+
+    <div class="max-w-xl mx-auto flex items-center justify-between gap-8">
+      <h1 class="font-bold text-3xl">Are you ready?</h1>
+      <%= link_to "Buy now", product_checkout_path(@product), class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
 </div>

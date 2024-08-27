@@ -1,14 +1,14 @@
-<%= link_to product, class: "no-underline hover:underline text-center group" do %>
-  <%= image_tag(product.featured_image, class: "mt-0 mb-2 rounded-md group-hover:opacity-80") if product.featured_image.attached? %>
-  <div class="mt-6">
-    <h3 class="mt-1 text-lg font-bold text-gray-900">
+<%= link_to product, class: "no-underline text-center group border border-gray-200 rounded-md overflow-hidden hover:bg-gray-50 " do %>
+  <figure class="group-hover:opacity-90">
+    <%= featured_image product %>
+  </figure>
+
+  <div class="p-6">
+    <h3 class="mt-1 text-xl font-bold text-gray-900">
       <%= product.name %>
     </h3>
     <div class="mt-1 text-gray-900">
-      <%= number_to_currency product.amount_in_cents / 100.0 %>
-      <% if product.interval? %>
-        / <%= product.interval_count == 1 ? product.interval : pluralize(product.interval_count, product.interval) %>
-      <% end %>
+      <%= pricing(product) %>
     </div>
   </div>
 <% end %>

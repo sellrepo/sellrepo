@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     @pagy, @products = pagy Product.all
-
     redirect_to welcome_path if @pagy.count.zero?
   end
 

@@ -9,8 +9,20 @@ module SellRepo
       User.admins.any?
     end
 
-    def app_name?
-      Config.first.name?
+    def store_name?
+      config.store_name?
+    end
+
+    def store_name
+      config.store_name || "My Store"
+    end
+
+    def company_name
+      config.company_name || "Example, LLC"
+    end
+
+    def support_url
+      config.support_url
     end
 
     def github_token
@@ -43,6 +55,10 @@ module SellRepo
 
     def smtp?
       !!smtp_host
+    end
+
+    def config
+      Current.config ||= Config.first_or_create
     end
   end
 end

@@ -22,12 +22,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   </head>
 
-  <body class="pb-16">
+  <body>
     <%= render "flash" %>
     <%= render "navbar" %>
 
-    <div class="container mx-auto mt-8">
+    <div class="max-w-5xl mx-auto mt-8 px-4">
       <%= yield %>
     </div>
+
+    <%= render "footer" %>
   </body>
 </html>

@@ -1,7 +1,8 @@
 class ConfigResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
-  attribute :name, index: true, label: "Your store's name"
+  attribute :store_name, index: true, label: "Your store's name", placeholder: "My Store"
+  attribute :company_name, index: true, label: "Your company's name", placeholder: "Example, LLC"
   attribute :support_url do |config|
     config.placeholder = "mailto:support@example.org"
   end

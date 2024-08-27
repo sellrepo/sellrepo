@@ -6,7 +6,7 @@ You can deploy SellRepo with Kamal, Heroku, Render, Fly, Hatchbox.io, or your pr
 
 First, you'll need your Stripe production [secret key](https://dashboard.stripe.com/apikeys).
 
-Second, you'll need to set up production webhooks to `https://yourdomain.com/webhooks/stripe`
+Second, you'll need to set up production webhooks to `https://YOURDOMAIN.com/paywebhooks/stripe`
 After creating the production webhook, Stripe will provide a signing secret which you'll set as the `STRIPE_SIGNING_SECRET` environment variable or in the Rails credentials.
 
 The signing secret is used to ensure webhooks received came securely from Stripe.
