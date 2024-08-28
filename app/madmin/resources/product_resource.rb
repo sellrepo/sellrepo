@@ -15,7 +15,7 @@ class ProductResource < Madmin::Resource
 
   attribute :description, index: false
 
-  attribute :created_at, form: true
+  attribute :created_at, form: false
   attribute :updated_at, form: false
 
   # Associations
