@@ -16,6 +16,7 @@ if (user = User.find_by(email: email))
 else
   password = SecureRandom.alphanumeric(16)
   User.create(
+    name: "Admin User",
     email: email,
     password: password,
     password_confirmation: password,
