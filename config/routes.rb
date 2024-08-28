@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :products, only: [ :index, :show ] do
     resource :checkout, only: [ :show ]
     namespace :checkout do
-      resource :stripe, controller: :stripe, only: [ :show ]
+      resource :return, only: [ :show ]
     end
   end
   resources :licenses do

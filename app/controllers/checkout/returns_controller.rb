@@ -1,4 +1,4 @@
-class Checkout::StripeController < ApplicationController
+class Checkout::ReturnsController < ApplicationController
   before_action :authenticate_user!
 
   def show

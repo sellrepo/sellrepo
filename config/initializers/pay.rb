@@ -18,12 +18,12 @@ module SubscriptionExtensions
   end
 
   def user
-    return if metadata["user_id"].blank?
+    return if metadata&.dig("user_id").blank?
     @user ||= User.find_by(metadata["user_id"])
   end
 
   def product
-    return if metadata["product_id"].blank?
+    return if metadata&.dig("product_id").blank?
     @product ||= Product.find(metadata["product_id"])
   end
 
@@ -56,12 +56,12 @@ module ChargeExtensions
   end
 
   def user
-    return if metadata["user_id"].blank?
+    return if metadata&.dig("user_id").blank?
     @user ||= User.find_by(metadata["user_id"])
   end
 
   def product
-    return if metadata["product_id"].blank?
+    return if metadata&.dig("product_id").blank?
     @product ||= Product.find(metadata["product_id"])
   end
 end

@@ -45,13 +45,17 @@ github:
 
 #### Payments
 
+SellRepo supports 2 different payment processors: Stripe & LemonSqueezy
+
+##### Stripe
+
 To test payments locally, you'll need to provide the Stripe test environment secret key. This can be done in env vars or with Rails credentials.
 
 ```bash
 STRIPE_PRIVATE_KEY=sk_test_1234 bin/rails server
 ```
 
-Or with credentials, use environment credentials `bin/rails credentials:edit --environment=development`
+Or with Rails credentials, use environment credentials `bin/rails credentials:edit --environment=development`
 
 ```yaml
 stripe:
@@ -62,4 +66,26 @@ For development, Stripe webhooks can be forwarded to Rails by using the [Stripe 
 
 ```bash
 stripe listen --forward-to localhost:3000/webhooks/stripe
+```
+
+###### LemonSqueezy
+
+To test payments locally, you'll need to provide the Stripe test environment secret key. This can be done in env vars or with Rails credentials.
+
+```bash
+LEMON_SQUEEZY_STORE_ID=1234 LEMON_SQUEEZY_API_KEY=sk_test_1234 bin/rails server
+```
+
+Or with Rails credentials, use environment credentials `bin/rails credentials:edit --environment=development`
+
+```yaml
+lemon_squeezy:
+  store_id: 1234
+  api_key: sk_test_1234
+```
+
+For development, webhooks can be forwarded to Rails by using [localtunnel](https://theboroer.github.io/localtunnel-www/), ngrok, or a similar tool. This helps keep local payments data in sync (like if a subscription is canceled or a payment is refunded) to reflect those changes.
+
+```bash
+lt --port 3000
 ```

@@ -7,6 +7,7 @@ class ProductResource < Madmin::Resource
   attribute :github_repo, placeholder: "https://github.com/username/repository"
 
   attribute :stripe_price_id, placeholder: "price_12345"
+  attribute :lemon_squeezy_variant_id, placeholder: "12345"
   attribute :amount_in_cents, :currency, form: false, minor_units: true, label: "Amount"
   attribute :interval, form: false
   attribute :interval_count, form: false
@@ -14,7 +15,7 @@ class ProductResource < Madmin::Resource
 
   attribute :description, index: false
 
-  attribute :created_at, form: false
+  attribute :created_at, form: true
   attribute :updated_at, form: false
 
   # Associations

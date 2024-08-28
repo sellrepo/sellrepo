@@ -4,12 +4,66 @@ You can deploy SellRepo with Kamal, Heroku, Render, Fly, Hatchbox.io, or your pr
 
 ## Payments in production
 
+Only enable one payment processor at a time.
+
+### Stripe
+
 First, you'll need your Stripe production [secret key](https://dashboard.stripe.com/apikeys).
 
-Second, you'll need to set up production webhooks to `https://YOURDOMAIN.com/paywebhooks/stripe`
-After creating the production webhook, Stripe will provide a signing secret which you'll set as the `STRIPE_SIGNING_SECRET` environment variable or in the Rails credentials.
+Second, you'll need to set up production webhooks to `https://YOURDOMAIN.com/pay/webhooks/stripe`. Choose the following webhook events:
 
-The signing secret is used to ensure webhooks received came securely from Stripe.
+* charge.succeeded
+* charge.refunded
+* payment_intent.succeeded
+* invoice.upcoming
+* customer.subscription.created
+* customer.subscription.updated
+* customer.subscription.deleted
+* customer.subscription.trial_will_end
+* customer.updated
+* customer.deleted
+* checkout.session.completed
+* checkout.session.async_payment_succeeded
+
+The webhook signing secret is used to ensure webhooks received came securely from Stripe.
+
+Add to your Environment Variables:
+
+```bash
+STRIPE_PRIVATE_KEY=sk_test_1234
+STRIPE_SIGNING_SECRET=whsec_1234
+```
+
+or to Rails credentials:
+
+```yaml
+stripe:
+  private_key: sk_test_1234
+  signing_secret: whsec_1234
+```
+
+### LemonSqueezy
+
+Add your LemonSqueezy [API key](https://app.lemonsqueezy.com/settings/api) as `LEMON_SQUEEZY_API_KEY` environment variable on in the Rails credentials.
+
+Then create a Webhook that points to `https://YOURDOMAIN.com/pay/webhooks/lemon_squeezy`, set a signing secret and enable all the webhooks.
+
+Add to your Environment Variables:
+
+```bash
+LEMON_SQUEEZY_STORE_ID=1234
+LEMON_SQUEEZY_API_KEY=sk_test_1234
+LEMON_SQUEEZY_SIGNING_SECRET=whsec_1234
+```
+
+Or to Rails credentials:
+
+```yaml
+lemon_squeezy:
+  store_id: 1234
+  api_key: sk_test_1234
+  signing_secret: secret
+```
 
 ## GitHub Token
 
@@ -62,6 +116,12 @@ GITHUB_TOKEN=abcd
 
 STRIPE_PRIVATE_KEY=sk_12345
 STRIPE_SIGNING_SECRET=whsec_12345
+
+# Or
+
+LEMON_SQUEEZY_STORE_ID=1234
+LEMON_SQUEEZY_API_KEY=sk_12345
+LEMON_SQUEEZY_SIGNING_SECRET=whsec_12345
 ```
 
 ### Rails Credentials
@@ -87,11 +147,14 @@ github:
 stripe:
   private_key: sk_test_1234
   signing_secret: whsec_12345
+
+lemon_squeezy:
+  api_key: sk_test_1234
+  signing_secret: whsec_12345
 ```
 
 After saving this file, copy the contents of `config/credentials/production.key` to a safe place.
-
-Then add `RAILS_MASTER_KEY` as an environment variable on your production application. Set the value of this environment variable to the contents of `config/credentials/production.key`.
+Then add `RAILS_MASTER_KEY` as an environment variable on your production application using the contents of `config/credentials/production.key`.
 
 ## Create an admin user
 

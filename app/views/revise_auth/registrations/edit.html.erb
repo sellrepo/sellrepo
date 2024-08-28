@@ -1,6 +1,25 @@
 <div class="prose mx-auto">
   <h1><%=t ".profile" %></h1>
 
+  <%= form_with model: current_user, url: profile_path do |form| %>
+    <% if form.object.errors.any? %>
+      <ul>
+        <% form.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true, autofocus: true, placeholder: "Full name" %>
+    </div>
+
+    <div>
+      <%= form.button t(".save"), class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+
   <%= form_with model: current_user, url: profile_email_path do |form| %>
     <h3><%=t ".change_email_address" %></h3>
 

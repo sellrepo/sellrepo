@@ -5,6 +5,14 @@ module SellRepo
       github_token? && payments? && (Rails.env.production? ? smtp? : true)
     end
 
+    def payment_processor
+      if Pay::Stripe.private_key.present?
+        :stripe
+      elsif Pay::LemonSqueezy.api_key.present?
+        :lemon_squeezy
+      end
+    end
+
     def admin?
       User.admins.any?
     end

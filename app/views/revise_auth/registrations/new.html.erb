@@ -11,8 +11,13 @@
     <% end %>
 
     <div class="mb-4">
+      <%= form.label :name %>
+      <%= form.email_field :name, required: true, autofocus: true, placeholder: "Full name" %>
+    </div>
+
+    <div class="mb-4">
       <%= form.label :email %>
-      <%= form.email_field :email, required: true, autofocus: true %>
+      <%= form.email_field :email, required: true %>
     </div>
 
     <div class="mb-4">
