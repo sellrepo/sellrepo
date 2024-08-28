@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: 5eb291b36fe6607aa44705815eb438ace35b658b
+  revision: 24f37ddd384fcb95e19d32ddbc7d357c83f93dc1
   specs:
     pay (8.0.0)
       rails (>= 6.0.0)
@@ -190,7 +190,7 @@ GEM
     msgpack (1.7.2)
     net-http (0.4.1)
       uri
-    net-imap (0.4.14)
+    net-imap (0.4.15)
       date
       net-protocol
     net-pop (0.1.2)
