@@ -19,7 +19,7 @@ class Product < ApplicationRecord
     self.slug ||= name&.parameterize
   end
 
-  before_validation if: ->{ stripe_price_id_changed? } do
+  before_validation if: -> { stripe_price_id_changed? } do
     if stripe_price_id?
       price = ::Stripe::Price.retrieve(stripe_price_id)
       assign_attributes(

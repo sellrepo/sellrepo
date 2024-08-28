@@ -51,7 +51,7 @@ class CheckoutsController < ApplicationController
       },
       checkout_data: {
         email: current_user.email,
-        name: current_user.name,
+        name: current_user.name
       }
     )
     redirect_to checkout_session.url, allow_other_host: true
