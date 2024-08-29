@@ -39,7 +39,7 @@
   <pre><code>STRIPE_PRIVATE_KEY=sk_12345</code></pre>
 
   <% if Rails.env.production? %>
-    <p>Create a production webhook that points to <code>https://yourdomain.com/webhooks/stripe</code> and add the webhook signing secret to environment variables or Rails credentials.</p>
+    <p>Create a production webhook that points to <code>https://yourdomain.com/pay/webhooks/stripe</code> and add the webhook signing secret to environment variables or Rails credentials.</p>
     <pre><code>STRIPE_SIGNING_SECRET=whsec_12345</code></pre>
   <% elsif Rails.env.local? %>
 
