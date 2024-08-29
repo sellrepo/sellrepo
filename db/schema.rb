@@ -184,15 +184,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_13_211140) do
     t.string "github_repo"
     t.integer "amount_in_cents"
     t.string "stripe_price_id"
+    t.string "lemon_squeezy_variant_id"
     t.string "interval"
     t.integer "interval_count"
     t.integer "allowed_users", default: 1
+    t.boolean "hidden", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hidden"], name: "index_products_on_hidden"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name"
     t.string "email", null: false
     t.string "password_digest", null: false
     t.datetime "confirmed_at"
