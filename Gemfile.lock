@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/excid3/madmin.git
-  revision: b78d5f868cf46b219890a1b4a304ca7cbe8279b2
+  revision: e4864d4dda2bf9e65695d3e4adfa984bb8284b06
   specs:
     madmin (1.2.11)
       importmap-rails
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/pay-rails/pay.git
-  revision: 3047e23666f80e24983c533d414cc9ec7ed4c734
+  revision: 9f1432867761cd3310caa800f8fa390d4be8e58f
   specs:
     pay (8.0.0)
       rails (>= 6.0.0)
@@ -363,7 +363,7 @@ GEM
       railties (>= 7.0.0)
     tailwindcss-rails (2.7.3-x86_64-linux)
       railties (>= 7.0.0)
-    thor (1.3.1)
+    thor (1.3.2)
     thruster (0.1.8)
     thruster (0.1.8-aarch64-linux)
     thruster (0.1.8-arm64-darwin)
