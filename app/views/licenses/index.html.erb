@@ -3,5 +3,10 @@
 
   <div class="grid gap-4">
     <%= render @licenses %>
+
+    <div class="hidden only:block">
+      <p class="mt-0">You don't have any licenses yet.</p>
+      <p><%= link_to "Buy a product →", root_path, class: "no-underline btn btn-secondary" %></p>
+    </div>
   </div>
 </div>
