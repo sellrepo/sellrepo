@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  include Github
+  include Payments
+
   has_many :licenses, dependent: :destroy
 
   has_rich_text :description
