@@ -1,4 +1,6 @@
 module Product::Payments
+  extend ActiveSupport::Concern
+
   included do
     scope :one_time, -> { where(interval_count: nil) }
     scope :recurring, -> { where.not(interval_count: nil) }
