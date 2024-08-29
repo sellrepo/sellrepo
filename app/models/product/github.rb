@@ -2,9 +2,9 @@ module Product::Github
   extend ActiveSupport::Concern
 
   included do
+    normalizes :github_repo, with: -> { _1.split("github.com/").last }
     validates :github_repo, presence: true
     validate :github_repository_exists
-    normalizes :github_repo, with: -> { _1.split("github.com/").last }
   end
 
   def github_repository_exists
