@@ -1,6 +1,7 @@
 class ProductResource < Madmin::Resource
   # Attributes
   attribute :id, form: false
+  attribute :hidden
   attribute :name
   attribute :slug, index: false, label: "URL Slug"
   attribute :featured_image, index: false, description: "Recommended 1280x720 or higher with 16x9 aspect ratio"

@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration[7.2]
       t.string :interval
       t.integer :interval_count
       t.integer :allowed_users, default: 1
+      t.boolean :hidden, default: false, index: true
 
       t.timestamps
     end

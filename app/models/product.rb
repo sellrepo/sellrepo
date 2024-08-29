@@ -6,12 +6,15 @@ class Product < ApplicationRecord
 
   scope :one_time, -> { where(interval_count: nil) }
   scope :recurring, -> { where.not(interval_count: nil) }
+  scope :visible, -> { where(hidden: false) }
+  scope :hidden, -> { where(hidden: true) }
 
   validates :name, :slug, presence: true, uniqueness: true
   validates :amount_in_cents, presence: true
   validates :github_repo, presence: true
   validates :stripe_price_id, format: { allow_blank: true, with: /\Aprice_.+\z/ }
   validate :github_repository_exists
+  validate :price_id_exists
 
   normalizes :github_repo, with: -> { _1.split("github.com/").last }
 
@@ -57,5 +60,9 @@ class Product < ApplicationRecord
     GithubClient.new.repository(github_repo)
   rescue
     errors.add :github_repo, "Unable to find repository. Check that your GitHub token has access to this repository and there are no typos."
+  end
+
+  def price_id_exists
+    errors.add(:base, "Stripe or LemonSqueezy ID is required") unless stripe_price_id? || lemon_squeezy_variant_id?
   end
 end
