@@ -1,23 +1,15 @@
 namespace :sellrepo do
   desc "Generates an admin user"
   task admin: :environment do
-    email = ARGV[1]
-
-    if email.blank?
-      puts <<~MESSAGE
-        You must pass an email address to the command.
-
-            bin/rails sellrepo:admin email@example.org
-      MESSAGE
-      exit 1
-    end
+    puts "What email should we use for the admin user?"
+    email = gets.chomp
 
     if (user = User.find_by(email: email))
-      user.update(admin: true)
+      user.update!(admin: true)
       puts "#{email} is now an admin."
     else
       password = SecureRandom.alphanumeric(16)
-      User.create(
+      User.create!(
         name: "Admin User",
         email: email,
         password: password,

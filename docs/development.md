@@ -14,10 +14,10 @@ bin/rails server
 
 Admin users are able to manage the store and access the admin area for configuration and customer support.
 
-Run `bin/rails sellrepo:admin` to create an admin user and pass in your email:
+Run `bin/rails sellrepo:admin` to create an admin user and enter your email:
 
 ```ruby
-bin/rails sellrepo:admin email@example.org
+bin/rails sellrepo:admin
 ```
 
 A random password will be generated and printed out. You can change your password after logging in.

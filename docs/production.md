@@ -160,10 +160,10 @@ Then add `RAILS_MASTER_KEY` as an environment variable on your production applic
 
 Once deployed, you'll need to create an admin user in your production database. See your hosting provider's documentation about running one-off commands.
 
-Run `bin/rails sellrepo:admin` to create an admin user and pass in your email:
+Run `bin/rails sellrepo:admin` to create an admin user and enter your email:
 
 ```ruby
-bin/rails sellrepo:admin email@example.org
+bin/rails sellrepo:admin
 ```
 
 A random password will be generated and printed out. You can change your password after logging in and adding your SMTP credentials.
