@@ -25,6 +25,10 @@ class ProductResource < Madmin::Resource
   scope :one_time
   scope :recurring
 
+  member_action do
+    link_to "View", main_app.product_path(@record)
+  end
+
   # Uncomment this to customize the display name of records in the admin area.
   def self.display_name(record)
     record.name
