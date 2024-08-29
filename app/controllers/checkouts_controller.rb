@@ -23,7 +23,8 @@ class CheckoutsController < ApplicationController
     args = {
       mode: @product.interval? ? :subscription : :payment,
       line_items: @product.stripe_price_id,
-      success_url: product_checkout_return_url(@product)
+      success_url: return_url,
+      cancel_url: product_url(@product, host: request.host)
     }
 
     metadata = {
@@ -47,7 +48,7 @@ class CheckoutsController < ApplicationController
     checkout_session = payment_processor.checkout(
       variant_id: @product.lemon_squeezy_variant_id,
       product_options: {
-        redirect_url: product_checkout_return_url(@product)
+        redirect_url: return_url
       },
       checkout_data: {
         email: current_user.email,
@@ -55,5 +56,9 @@ class CheckoutsController < ApplicationController
       }
     )
     redirect_to checkout_session.url, allow_other_host: true
+  end
+
+  def return_url
+    product_checkout_return_url(@product, host: request.host)
   end
 end
