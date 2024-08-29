@@ -7,23 +7,3 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-email = ENV.fetch("EMAIL", "admin@example.org")
-
-
-if (user = User.find_by(email: email))
-  user.update(admin: true)
-  puts "#{email} is now an admin."
-else
-  password = SecureRandom.alphanumeric(16)
-  User.create(
-    name: "Admin User",
-    email: email,
-    password: password,
-    password_confirmation: password,
-    admin: true
-  )
-  puts "Your login credentials are: #{email} / #{password}"
-end
-
-puts
-puts "You can access the admin area by logging in and visiting /admin"
