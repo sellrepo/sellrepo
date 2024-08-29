@@ -4,9 +4,7 @@ You can deploy SellRepo with Kamal, Heroku, Render, Fly, Hatchbox.io, or your pr
 
 ## Payments in production
 
-Only enable one payment processor at a time.
-
-### Stripe
+### Stripe (Recommended)
 
 First, you'll need your Stripe production [secret key](https://dashboard.stripe.com/apikeys).
 
@@ -42,7 +40,10 @@ stripe:
   signing_secret: whsec_1234
 ```
 
-### LemonSqueezy
+### LemonSqueezy (Beta)
+
+> [!WARNING]
+> LemonSqueezy support is in beta.
 
 Add your LemonSqueezy [API key](https://app.lemonsqueezy.com/settings/api) as `LEMON_SQUEEZY_API_KEY` environment variable on in the Rails credentials.
 

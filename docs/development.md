@@ -45,9 +45,7 @@ github:
 
 #### Payments
 
-SellRepo supports 2 different payment processors: Stripe & LemonSqueezy
-
-##### Stripe
+##### Stripe (Recommended)
 
 To test payments locally, you'll need to provide the Stripe test environment secret key. This can be done in env vars or with Rails credentials.
 
@@ -68,7 +66,10 @@ For development, Stripe webhooks can be forwarded to Rails by using the [Stripe 
 stripe listen --forward-to localhost:3000/webhooks/stripe
 ```
 
-###### LemonSqueezy
+###### LemonSqueezy (Beta)
+
+> [!WARNING]
+> LemonSqueezy support is in beta.
 
 To test payments locally, you'll need to provide the Stripe test environment secret key. This can be done in env vars or with Rails credentials.
 
