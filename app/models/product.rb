@@ -27,7 +27,7 @@ class Product < ApplicationRecord
         interval: price.recurring&.interval,
         interval_count: price.recurring&.interval_count,
       )
-    else
+    elsif stripe_price_id_was.present?
       assign_attributes(amount_in_cents: nil, interval: nil, interval_count: nil)
     end
   rescue ::Stripe::StripeError => e
@@ -42,7 +42,7 @@ class Product < ApplicationRecord
         interval: variant.interval,
         interval_count: variant.interval_count,
       )
-    else
+    elsif lemon_squeezy_variant_id_was.present?
       assign_attributes(amount_in_cents: nil, interval: nil, interval_count: nil)
     end
   rescue ::LemonSqueezy::Error => e
