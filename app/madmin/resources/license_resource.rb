@@ -4,6 +4,7 @@ class LicenseResource < Madmin::Resource
 
   # Attributes
   attribute :id, form: false
+  attribute :state
   attribute :user
   attribute :name
   attribute :allowed_users, index: false
