@@ -99,6 +99,30 @@ SMTP_PASSWORD=password
 
 You can change this in `config/environments/production.rb` to use another email service if you prefer.
 
+### File uploads in production
+
+By default, files will be stored on disk. Many hosting services don't provide persistent storage so you'll need to configure external storage for file uploads if your host doesn't.
+
+You can use environment variables to configure the ActiveStorage service for file uploads.
+
+```bash
+ACTIVE_STORAGE_SERVICE=amazon
+S3_ACCESS_KEY_ID=
+S3_SECRET_ACCESS_KEY=
+S3_REGION=
+S3_BUCKET=
+```
+
+These environment variables are used in `config/storage.yml` which you can customize further. See https://guides.rubyonrails.org/active_storage_overview.html
+
+Amazon S3 credentials will need the following permissions:
+
+* s3:ListBucket
+* s3:PutObject
+* s3:GetObject
+* s3:DeleteObject
+* s3:PutObjectAcl
+
 ## Configuration
 
 SellRepo requires some configuration to run in production. We recommend using environment variables but if you're familiar with Rails, you can use Rails credentials.
@@ -107,6 +131,8 @@ SellRepo requires some configuration to run in production. We recommend using en
 
 Set the following environment variables on the app at your hosting provider to configure SellRepo.
 
+Here's a quick list of all the available environment variables:
+
 ```bash
 SMTP_HOST=smtp.example.com
 SMTP_DOMAIN=yourdomain.com
@@ -114,6 +140,12 @@ SMTP_USERNAME=username
 SMTP_PASSWORD=password
 
 GITHUB_TOKEN=abcd
+
+ACTIVE_STORAGE_SERVICE=amazon
+S3_ACCESS_KEY_ID=
+S3_SECRET_ACCESS_KEY=
+S3_REGION=
+S3_BUCKET=
 
 STRIPE_PRIVATE_KEY=sk_12345
 STRIPE_SIGNING_SECRET=whsec_12345

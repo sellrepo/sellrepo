@@ -66,7 +66,7 @@ For development, Stripe webhooks can be forwarded to Rails by using the [Stripe 
 stripe listen --forward-to localhost:3000/webhooks/stripe
 ```
 
-###### LemonSqueezy (Beta)
+##### LemonSqueezy (Beta)
 
 > [!WARNING]
 > LemonSqueezy support is in beta.
