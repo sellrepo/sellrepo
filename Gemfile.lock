@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/excid3/madmin.git
-  revision: 4569aea4d446ccb105d33baa739611b24789bc40
+  revision: 94f732ab259368ec4034487686f2db0125700dae
   specs:
     madmin (1.2.11)
       importmap-rails
@@ -207,7 +207,7 @@ GEM
       activesupport (>= 5.2.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.15)
+    net-imap (0.4.16)
       date
       net-protocol
     net-pop (0.1.2)
