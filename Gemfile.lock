@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/excid3/madmin.git
-  revision: f600dd8e39d8dd66ea652a2ecf0cecf68f2c2557
+  revision: 5ae799d545314092e1433a171fb3337afad8ba39
   specs:
     madmin (1.2.11)
       importmap-rails
+      ostruct
       pagy (>= 3.5)
       propshaft
       rails (>= 7.0.0)
