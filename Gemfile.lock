@@ -193,7 +193,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    mailbin (0.1.0)
+    mailbin (0.1.1)
       importmap-rails
       rails (>= 7.1.0)
       turbo-rails
@@ -466,7 +466,7 @@ DEPENDENCIES
   kamal (>= 2.0.0.rc2)
   lemonsqueezy (~> 1.0)
   madmin!
-  mailbin (~> 0.1.0)
+  mailbin (~> 0.1.1)
   name_of_person (~> 1.1)
   pagy (~> 9.0)
   pay (~> 8.0)
