@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/excid3/madmin.git
-  revision: 80dcf51b8455506fa8541afabce59371960e6ea3
+  revision: 89ad662a3451231f485288d9e3bbf27e4f485553
   specs:
     madmin (1.2.11)
       importmap-rails
@@ -303,7 +303,7 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     rb_sys (0.9.102)
-    rdoc (6.7.0)
+    rdoc (6.8.0)
       psych (>= 4.0.0)
     receipts (2.4.0)
       prawn (>= 1.3.0, < 3.0.0)
