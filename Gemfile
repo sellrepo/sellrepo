@@ -63,7 +63,7 @@ group :test do
   gem "webmock", "~> 3.23"
 end
 
-gem "commonmarker", "~> 1.1"
+gem "commonmarker", "~> 2.0"
 gem "honeybadger", "~> 5.15"
 gem "lemonsqueezy", "~> 1.0"
 gem "madmin", "~> 2.0"
