@@ -235,7 +235,7 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    pay (8.2.0)
+    pay (8.2.1)
       rails (>= 6.0.0)
     pdf-core (0.10.0)
     pg (1.5.9)
@@ -463,7 +463,7 @@ DEPENDENCIES
   mailbin (~> 1.0)
   name_of_person (~> 1.1)
   pagy (~> 9.0)
-  pay (~> 8.0)
+  pay (~> 8.2)
   pg (~> 1.5)
   pretender (~> 0.5)
   propshaft
