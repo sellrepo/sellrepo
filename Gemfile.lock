@@ -405,9 +405,9 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.2)
     stripe (13.4.1)
-    tailwindcss-rails (3.3.0)
+    tailwindcss-rails (4.0.0)
       railties (>= 7.0.0)
-      tailwindcss-ruby
+      tailwindcss-ruby (~> 4.0)
     tailwindcss-ruby (4.0.6)
     tailwindcss-ruby (4.0.6-aarch64-linux-gnu)
     tailwindcss-ruby (4.0.6-aarch64-linux-musl)
@@ -501,7 +501,7 @@ DEPENDENCIES
   sqlite3 (>= 2.1)
   stimulus-rails
   stripe (~> 13.0)
-  tailwindcss-rails (~> 3.0)
+  tailwindcss-rails (~> 4.0)
   tailwindcss-ruby (~> 4.0.0.beta.8)
   thruster
   turbo-rails
