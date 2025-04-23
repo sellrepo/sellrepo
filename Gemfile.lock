@@ -249,7 +249,7 @@ GEM
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
-    pay (10.0.3)
+    pay (10.0.4)
       rails (>= 7.0.0)
     pdf-core (0.10.0)
     pg (1.5.9)
