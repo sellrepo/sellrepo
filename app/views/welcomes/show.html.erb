@@ -22,11 +22,17 @@
   </h2>
   <p>Next, we need to create a GitHub access token to connect customers to the repositories they've purchased access to. GitHub Organizations allow setting the permission so customers cannot push code to the repository which is what we recommend but personal repositories work too.</p>
 
-  <p>For Expiration, we recommend 90 days or 1 year expiration. You will need to update this key periodically.</p>
+  <ol>
+    <li>Enable Personal Access Tokens for your organization at https://github.com/organizations/YOUR_ORG/settings/personal-access-tokens</li>
+    <li>You can disable maximum lifetimes which allows access tokens to live forever if you'd like.</li>
+    <li>Then create a <%= link_to "Personal Access Token", "https://github.com/settings/personal-access-tokens/new", target: :_blank %></li>
+  </ol>
 
-  <p>For "Resource owner", choose the owner of the repositories you'll be selling. If the GitHub organization doesn't show here, enable personal access tokens in the Org settings.</p>
+  <p>For <strong>Expiration</strong>, we recommend "No expiration" (if enabled) or the longest expiration you can set. You will need to update this key periodically.</p>
 
-  <p>Select "All repositories" or select the specific repositories you wish to sell. You'll need to generate a new API token to add more repositories if you don't select All repositories.</p>
+  <p>For <strong>Resource owner</strong>, choose the owner of the repositories you'll be selling. If the GitHub organization doesn't show here, enable personal access tokens in the Org settings.</p>
+
+  <p>Select <strong>All repositories</strong> or select the specific repositories you wish to sell. You'll need to generate a new API token to add more repositories if you don't select All repositories.</p>
   <%= link_to image_tag("sellrepo/github-token-repositories.png", class: "max-h-48"), asset_path("sellrepo/github-token-repositories.png"), target: :_blank %>
 
   <p>Under "Administration" set "Read &amp; Write" access. This is required to add customers to your GitHub repositories.</p>
