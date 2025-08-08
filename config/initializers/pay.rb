@@ -17,7 +17,7 @@ module SubscriptionExtensions
       allowed_users: product.allowed_users
     )
 
-    UserMailer.with(product: product).purchase_notification_email.deliver_later
+    UserMailer.with(license: license).purchase_notification_email.deliver_later
   end
 
   def user
@@ -56,7 +56,7 @@ module ChargeExtensions
       allowed_users: product.allowed_users
     )
 
-    UserMailer.with(product: product).purchase_notification_email.deliver_later
+    UserMailer.with(license: license).purchase_notification_email.deliver_later
   end
 
   def user
