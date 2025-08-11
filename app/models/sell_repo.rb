@@ -33,6 +33,10 @@ module SellRepo
       config&.support_url
     end
 
+    def purchase_notifications_enabled?
+      config&.purchase_notifications_enabled != false
+    end
+
     def github_token
       ENV["GITHUB_TOKEN"] || Rails.application.credentials.github&.dig(:token)
     end
