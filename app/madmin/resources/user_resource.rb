@@ -13,8 +13,8 @@ class UserResource < Madmin::Resource
 
   # Associations
   attribute :pay_customers
-  attribute :charges
-  attribute :subscriptions
+  attribute :pay_charges
+  attribute :pay_subscriptions
   attribute :payment_processor
   attribute :licenses
 

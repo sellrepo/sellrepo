@@ -16,7 +16,7 @@
 
   <h2>Payment History</h2>
 
-  <% if current_user.charges.sorted.any? %>
+  <% if current_user.pay_charges.sorted.any? %>
     <table class="w-full text-sm">
       <thead>
         <tr>
@@ -28,7 +28,7 @@
       </thead>
 
       <tbody>
-        <% current_user.charges.sorted.each do |charge| %>
+        <% current_user.pay_charges.sorted.each do |charge| %>
           <tr class="group border-t border-gray-200">
             <td class="p-3"><%= charge.created_at.strftime("%B %e, %Y") %></td>
             <td class="p-3"><%= pay_amount_to_currency(charge) %></td>
