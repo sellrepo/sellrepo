@@ -16,6 +16,8 @@ module SubscriptionExtensions
       name: "#{product.name} License",
       allowed_users: product.allowed_users
     )
+
+    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications?
   end
 
   def user
@@ -53,6 +55,8 @@ module ChargeExtensions
       name: "#{product.name} License",
       allowed_users: product.allowed_users
     )
+
+    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications?
   end
 
   def user
