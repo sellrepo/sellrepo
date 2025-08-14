@@ -58,7 +58,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_221448) do
     t.string "opengraph_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "purchase_notifications_enabled", default: true
+    t.boolean "purchase_notifications", default: true
   end
 
   create_table "license_users", force: :cascade do |t|

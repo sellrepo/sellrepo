@@ -33,8 +33,8 @@ module SellRepo
       config&.support_url
     end
 
-    def purchase_notifications_enabled?
-      config&.purchase_notifications_enabled != false
+    def purchase_notifications?
+      config&.purchase_notifications?
     end
 
     def github_token

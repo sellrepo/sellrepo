@@ -17,7 +17,7 @@ module SubscriptionExtensions
       allowed_users: product.allowed_users
     )
 
-    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications_enabled?
+    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications?
   end
 
   def user
@@ -56,7 +56,7 @@ module ChargeExtensions
       allowed_users: product.allowed_users
     )
 
-    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications_enabled?
+    UserMailer.with(license: license).purchase_notification_email.deliver_later if SellRepo.purchase_notifications?
   end
 
   def user

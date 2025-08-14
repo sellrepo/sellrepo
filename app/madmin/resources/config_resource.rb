@@ -13,7 +13,7 @@ class ConfigResource < Madmin::Resource
   attribute :opengraph_image_url
   attribute :opengraph_image
 
-  attribute :purchase_notifications_enabled, label: "Enable purchase notification emails", description: "Send email notifications to admins when purchases are made"
+  attribute :purchase_notifications, label: "Enable purchase notification emails", description: "Send email notifications to admins when purchases are made"
 
   attribute :created_at, form: false
   attribute :updated_at, form: false
