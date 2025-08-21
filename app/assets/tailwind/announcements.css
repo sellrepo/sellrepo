@@ -1,0 +1,19 @@
+.announcement-new {
+  background-color: var(--color-blue-100);
+  color: var(--color-blue-600);
+}
+
+.announcement-fix {
+  background-color: var(--color-red-100);
+  color: var(--color-red-600);
+}
+
+.announcement-update {
+  background-color: var(--color-green-100);
+  color: var(--color-green-600);
+}
+
+.announcement-improvement {
+  background-color: var(--color-purple-100);
+  color: var(--color-purple-600);
+}

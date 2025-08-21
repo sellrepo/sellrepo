@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_11_221448) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_16_135256) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_221448) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "announcements", force: :cascade do |t|
+    t.string "kind"
+    t.string "title"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "configs", force: :cascade do |t|
     t.string "store_name"
     t.string "company_name"
@@ -58,7 +66,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_221448) do
     t.string "opengraph_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "purchase_notifications", default: true
+    t.boolean "purchase_notifications_enabled", default: true
   end
 
   create_table "license_users", force: :cascade do |t|
@@ -216,6 +224,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_11_221448) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "extra_billing_info"
+    t.datetime "announcements_read_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

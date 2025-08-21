@@ -2,6 +2,7 @@
 namespace :madmin, path: :admin do
   resources :configs
   resources :licenses
+  resources :announcements
   namespace :license do
     resources :users
   end

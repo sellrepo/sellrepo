@@ -179,6 +179,7 @@ GEM
     lemonsqueezy (1.1.0)
       faraday (~> 2.0)
     lint_roller (1.1.0)
+    local_time (3.0.3)
     logger (1.7.0)
     loofah (2.24.1)
       crass (~> 1.0.2)
@@ -493,6 +494,7 @@ DEPENDENCIES
   jbuilder
   kamal (>= 2.0.0.rc2)
   lemonsqueezy (~> 1.0)
+  local_time
   madmin (~> 2.0)
   mailbin (~> 1.0)
   name_of_person (~> 1.1)
