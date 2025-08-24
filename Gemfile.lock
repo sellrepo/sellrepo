@@ -494,7 +494,7 @@ DEPENDENCIES
   jbuilder
   kamal (>= 2.0.0.rc2)
   lemonsqueezy (~> 1.0)
-  local_time
+  local_time (~> 3.0)
   madmin (~> 2.0)
   mailbin (~> 1.0)
   name_of_person (~> 1.1)
