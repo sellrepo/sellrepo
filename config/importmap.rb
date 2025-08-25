@@ -8,4 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
 pin "local-time", to: "local-time.es2017-esm.js"
-pin "tailwindcss-stimulus-components" # @6.0.2
+pin "tailwindcss-stimulus-components" # @6.1.3
