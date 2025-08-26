@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Challenges::Turnstile
   include ReviseAuth::Model
 
   has_person_name

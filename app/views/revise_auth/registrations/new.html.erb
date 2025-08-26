@@ -30,6 +30,8 @@
       <%= form.password_field :password_confirmation, required: true %>
     </div>
 
+    <%= tag.div class: "mb-4", data: { controller: :turnstile, turnstile_field_name_value: "user[challenge_token]", turnstile_site_key_value: TurnstileClient.site_key } if TurnstileClient.enabled? %>
+
     <div>
       <%= form.button t(".sign_up"), class: "btn btn-secondary" %>
     </div>

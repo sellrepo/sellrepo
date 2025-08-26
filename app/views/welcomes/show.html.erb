@@ -50,8 +50,6 @@
   <% if Rails.env.production? %>
     <p>Create a production webhook that points to <code>https://yourdomain.com/pay/webhooks/stripe</code> and add the webhook signing secret to environment variables or Rails credentials.</p>
     <pre><code>STRIPE_SIGNING_SECRET=whsec_12345</code></pre>
-  <% elsif Rails.env.local? %>
-
   <% end %>
 
   <% if Rails.env.production? %>
@@ -66,6 +64,15 @@ SMTP_DOMAIN=yourdomain.com
 SMTP_USERNAME=username
 SMTP_PASSWORD=password</code></pre>
   <% end %>
+
+  <h2>
+    <%= check_icon class: class_names("inline-block", "size-6", TurnstileClient.enabled? ? "text-green-600" : "text-gray-500") %>
+    Cloudflare Turnstile
+    </h2>
+  <p>Optionally, you can enable <%= link_to "Turnstile", "https://developers.cloudflare.com/turnstile/", target: :_blank %> to help prevent bots from registering for your site.</p>
+
+  <pre><code>TURNSTILE_SITE_KEY=x
+TURNSTILE_SECRET_KEY=y</code></pre>
 
   <h2>
     <%= check_icon class: class_names("inline-block", "size-6", Product.any? ? "text-green-600" : "text-gray-500") %>
