@@ -5,7 +5,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: InterVariable, sans-serif;
+  --font-sans--font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 body {
@@ -37,7 +38,10 @@ label {
   @apply block text-sm font-medium mb-2;
 }
 
-input[type=text], input[type=email], input[type=password], .form-control {
+input[type=text],
+input[type=email],
+input[type=password],
+.form-control {
   @apply py-2.5 px-3 block w-full border-gray-200 rounded text-sm focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none;
 }
 
@@ -47,8 +51,9 @@ input[type=text], input[type=email], input[type=password], .form-control {
   p {
     @apply text-sm/6 text-white m-0;
 
-    a, strong {
-       @apply text-white no-underline;
+    a,
+    strong {
+      @apply text-white no-underline;
     }
 
     strong {
