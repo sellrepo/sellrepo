@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.1.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
@@ -70,11 +70,11 @@ gem "local_time", "~> 3.0"
 gem "madmin", "~> 2.0"
 gem "mailbin", "~> 1.0"
 gem "name_of_person", "~> 1.1"
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 43.0"
 gem "pay", "~> 11.0"
 gem "pg", "~> 1.5"
 gem "pretender", "~> 0.5"
 gem "receipts", "~> 2.4"
 gem "revise_auth", "~> 0.8"
-gem "stripe", "~> 15.0"
+gem "stripe", "~> 17.0"
 gem "tailwindcss-rails", "~> 4.1"
