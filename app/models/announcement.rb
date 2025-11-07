@@ -3,6 +3,7 @@ class Announcement < ApplicationRecord
 
   scope :draft, -> { where(published_at: nil) }
   scope :published, -> { where.not(published_at: nil) }
+  scope :newest_first, -> { order(published_at: :desc) }
 
   has_rich_text :description
 
