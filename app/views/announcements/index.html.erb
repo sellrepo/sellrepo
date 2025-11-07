@@ -10,9 +10,9 @@
     <% end %>
   </div>
 
-  <% if @pagy.pages > 1 %>
+  <% if @pagy.last > 1 %>
     <div class="text-center mt-8">
-      <%== pagy_nav(@pagy) %>
+      <%== @pagy.series_nav %>
     </div>
   <% end %>
 </div>
