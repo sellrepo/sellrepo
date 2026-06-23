@@ -38,7 +38,8 @@ gem "kamal", ">= 2.0.0.rc2", require: false
 gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
+gem "ruby-vips", "~> 2.3", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -73,7 +74,7 @@ gem "name_of_person", "~> 1.1"
 gem "pagy", "~> 43.0"
 gem "pay", "~> 11.0"
 gem "pg", "~> 1.5"
-gem "pretender", "~> 0.5"
+gem "pretender", "~> 1.0"
 gem "receipts", "~> 2.4"
 gem "revise_auth", "~> 0.8"
 gem "stripe", "~> 19.0"
