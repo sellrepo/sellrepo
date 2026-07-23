@@ -65,7 +65,7 @@ group :test do
 end
 
 gem "commonmarker", "~> 2.9"
-gem "honeybadger", "~> 6.0"
+gem "honeybadger", "~> 6.9"
 gem "lemonsqueezy", "~> 1.0"
 gem "local_time", "~> 3.0"
 gem "madmin", "~> 2.0"

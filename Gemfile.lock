@@ -146,7 +146,7 @@ GEM
     globalid (1.4.0)
       activesupport (>= 6.1)
     hashdiff (1.2.1)
-    honeybadger (6.9.0)
+    honeybadger (6.9.1)
       logger
       ostruct
     i18n (1.15.2)
@@ -502,7 +502,7 @@ DEPENDENCIES
   capybara
   commonmarker (~> 2.9)
   debug
-  honeybadger (~> 6.0)
+  honeybadger (~> 6.9)
   image_processing (~> 2.0)
   importmap-rails
   jbuilder
