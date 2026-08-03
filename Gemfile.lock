@@ -500,9 +500,9 @@ DEPENDENCIES
   bootsnap
   brakeman
   capybara
-  commonmarker (~> 2.8)
+  commonmarker (~> 2.9)
   debug
-  honeybadger (~> 6.0)
+  honeybadger (~> 6.9)
   image_processing (~> 2.0)
   importmap-rails
   jbuilder
