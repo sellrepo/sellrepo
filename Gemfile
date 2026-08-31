@@ -64,7 +64,7 @@ group :test do
   gem "webmock", "~> 3.23"
 end
 
-gem "commonmarker", "~> 2.9"
+gem "commonmarker", "~> 2.10"
 gem "honeybadger", "~> 6.9"
 gem "lemonsqueezy", "~> 1.0"
 gem "local_time", "~> 3.0"
